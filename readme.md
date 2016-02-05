@@ -1,3 +1,7 @@
+## This is a code script:
+
+::cold_sweet::
+
 ```vbscript
 dim uri as string
 uri = ""
