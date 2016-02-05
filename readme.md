@@ -1,7 +1,5 @@
 ## This is a code script:
-
-::cold_sweat:: or ::cold-sweat::?
-
+:cold_sweat:
 ```VB
 Dim uri as string
 uri = ""
