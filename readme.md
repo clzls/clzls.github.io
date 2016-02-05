@@ -1,9 +1,9 @@
 ## This is a code script:
 
-::cold_sweet::
+::cold_sweat:: or ::cold-sweat::?
 
-```vbscript
-dim uri as string
+```VB
+Dim uri as string
 uri = ""
 uri = uri & "appid=" & My.Settings.AppId
 ```
