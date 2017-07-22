@@ -1,0 +1,15 @@
+/* TEAM */
+	Chef:clzls
+	Contact: adult [at] live.cn
+	Twitter: @clzlsclzls
+	From: Fujian, China
+
+/* THANKS */
+
+	Currently empty.
+
+/* SITE */
+	Last update:2017/07/22
+	Language: English / Simplified Chinese
+	Doctype:HTML
+	IDE: Notepad++ only
