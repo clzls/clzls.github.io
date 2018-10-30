@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/firetimer
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://clzls.github.io
+  * I am firetimer (https://keybase.io/firetimer) on keybase.
+  * I have a public key ASBFtrIgIpKt_SsHmOICeKs14LV2r5_0HLGfrlCREduwAwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120bdbd77aeb4c8f73077282e021fc0af69ce5ec660e71487eec04eb33fae948ce50a",
+      "host": "keybase.io",
+      "kid": "012045b6b2202292adfd2b0798e20278ab35e0b576af9ff41cb19fae509111dbb0030a",
+      "uid": "32c46c1440c8ffaf6bbf7ad8c0477519",
+      "username": "firetimer"
+    },
+    "merkle_root": {
+      "ctime": 1540879608,
+      "hash": "aba015aa1c7f288516125d1c04075b23b4ea07ff8c1ea0aeb0d93e56ad62d9d02c9997ab546837afc640cd06d538c706f3f88ea78ca49441a057c1ddce9bc942",
+      "hash_meta": "775db0d54bba1738114d39a1a4edd3d4a141717843b02bb9eb576e20b1595c3e",
+      "seqno": 3869074
+    },
+    "service": {
+      "entropy": "jBNHZCm0GVt6lU7ioHGRR8IO",
+      "hostname": "clzls.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.8.0"
+  },
+  "ctime": 1540879623,
+  "expire_in": 504576000,
+  "prev": "c50814d69bbb514b4875c8d4d80dd3e50a73ad7f4a1964fecc5283aae55da254",
+  "seqno": 14,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgRbayICKSrf0rB5jiAnirNeC1dq+f9Byxn65QkRHbsAMKp3BheWxvYWTESpcCDsQgxQgU1pu7UUtIdcjU2A3T5QpzrX9KGWT+zFKDquVdolTEIPkjv1VScy2D3654O2BVtR2l/3/oMH3/8PDxuUIW+h+SAgHCo3NpZ8RA/j/1ikYu1UJIPp2ZYL4beM4LXis3/iGGbrPCg00tQ5pa/1jseLwCQNBEvNFT7x28njy3Zu1f+b+fPeWX0+8aAKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIKXjaG+1pr1TKPdMmqC0Q20qKBDUyGTwcBY95mdtfsqlo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/firetimer
+
+==================================================================
