@@ -12,4 +12,4 @@
 	Last update:2017/07/22
 	Language: English / Simplified Chinese
 	Doctype:HTML
-	IDE: Notepad++ only
+	IDE: Notepad++, VS Code
