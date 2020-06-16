@@ -1,0 +1,83 @@
+/*.tit {
+    font-size: 1.5em;
+}*/
+
+/* Override card-body settings */
+div.card-body {
+    padding: 0.75rem;
+}
+
+span.miss {
+    color: green;
+}
+
+td.nowrap {
+    white-space: nowrap;
+}
+
+article {
+    border-color: black;
+    border-style: solid;
+    margin: 5px;
+}
+
+/*
+article.machcard {
+    margin: 1%;
+}
+
+article.stacard {
+    margin: 10px;
+}
+*/
+
+div.card.cpast {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    color: gray;
+}
+
+div.card.cnew .card-title {
+    font-weight: bold;
+}
+
+.dbimg img{
+    max-width: 100%;
+    max-height: 50px;
+    overflow: auto auto;
+    float: none;
+}
+
+.dbimg-big img{
+    max-width: 75%;
+    height: auto;
+    float: none;
+}
+/*
+p.score span.s0 {background-color: red;}
+p.score span.s1 {background-color: lightcoral;}
+p.score span.s2 {background-color: yellow;}
+p.score span.s3 {background-color: greenyellow;}
+p.score span.s4 {background-color: green;}
+p.score span.s5 {background-color: green;}
+*/
+p.score span.slt {
+    background-color: black;
+}
+
+p.score span.s0lt1, p.score span.s1lt1 {color: red;}
+p.score span.s1lt2, p.score span.s3lt1, p.score span.s4lt2 {
+    color: yellow;}
+p.score span.s2lt1, p.score span.s2lt2 {color: yellow;}
+p.score span.s4lt1, p.score span.s5lt1 {color: #33FF33;}
+p.score span.s0lt2, p.score span.s3lt2, p.score span.s5lt2 {
+    color: transparent;}
+
+span.rmvTrue {
+    text-decoration-line: none;
+}
+
+span.rmvFalse {
+    text-decoration-line: line-through;
+    color: transparent;
+}
