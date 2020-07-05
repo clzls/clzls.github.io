@@ -15,12 +15,6 @@ td.nowrap {
     white-space: nowrap;
 }
 
-article {
-    border-color: black;
-    border-style: solid;
-    margin: 5px;
-}
-
 /*
 article.machcard {
     margin: 1%;
