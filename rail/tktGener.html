@@ -61,8 +61,8 @@
       $("#staname1").change(function () {
         var t = $("#staname1").val();
         if (t.length > 0) {
-          $("#descSelTxt_pmbz").prop("placeholder", t + " 售");
-          $("#descSelTxt_pmbz").attr("placeholder", t + " 售");
+          $("#descSelTxt_pmbz").prop("placeholder", "例如：" + t);
+          $("#descSelTxt_pmbz").attr("placeholder", "例如：" + t);
         }
       });
       $("#staname2").change(function () {
@@ -74,7 +74,7 @@
       $("#tktno").change(function () {
         var t = parseInt($("#tktno").val()) % 100000;
         if (t > 0) {
-          var msg = (t >= 30000)?((t/1000%100).toFixed().toString()+"-"+(t%1000).toFixed().toString()+"号?取票机"):((t < 10000)?((t%1000).toFixed().toString()+"号?窗口"):"");
+          var msg = (t >= 30000)?((t/1000%100).toFixed().toString()+"-"+(t%1000).toFixed().toString()+"号?取票机"):((t < 10000)?((t%1000).toFixed().toString()+"号?窗口"):"代售点?");
           $("#staname2").prop("placeholder", msg);
           if ((msg.length>0) && ($("#staname2").val().length==0)) $("#staname2").val(msg);
         }
@@ -315,11 +315,11 @@
           </div>
           <span class="input-group-text">票号后注</span>
         </div>
-        <input type="text" class="form-control" id="descSelTxt_pmbz" aria-label="请输入车票票号后的提示" placeholder="武A售"
+        <input type="text" class="form-control" id="descSelTxt_pmbz" aria-label="请输入车票票号后的提示" placeholder="例如：武A"
           title="请输入车票票号后的提示。">
       </div>
       <div class="form-group">
-        <small class="text-muted">如有“武A售”“上海自售”等特殊字样应该填写上框。</small>
+        <small class="text-muted">如有“武A”“上海自售”等并非车站名的特殊字样应该填写上框。据悉，原则上记账日期晚于 2021-04-03 之车票不再显示“**售”，而直接显示“**”（车站名等）。自北京时间 2021-04-03 00:00 始至 2021-05-03 00:00 止，所有车票均需标注票号后注，如“福州售”“北京西”。</small>
       </div>
       <div class="form-group">
         票机功能信息:
