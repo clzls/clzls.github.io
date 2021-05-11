@@ -13,9 +13,14 @@
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
   <script src="./js/tkt_type.min.js"></script>
+  <!-- React BEGIN -->
+  <script src="https://cdn.staticfile.org/react/17.0.0/umd/react.production.min.js" crossorigin></script>
+  <script src="https://cdn.staticfile.org/react-dom/17.0.0/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="./js/data_persons.min.js"></script>
+  <!-- React END -->
   <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   <style>
-    body{padding-top:4em;}img.ptimg{width:300px;max-width:100%;height:auto}p.score span.s0lt1,p.score span.s1lt1{color:red!important}p.score span.s1lt2,p.score span.s2lt1,p.score span.s2lt2,p.score span.s3lt1,p.score span.s4lt2{color:#ff0!important}p.score span.s4lt1,p.score span.s5lt1{color:#3f3!important}p.score span.s0lt2,p.score span.s3lt2,p.score span.s5lt2{color:transparent!important}
+    body{padding-top:4em;}img.ptimg{width:300px;max-width:100%;height:auto}p.score span.s0lt1,p.score span.s1lt1{color:red!important}p.score span.s1lt2,p.score span.s2lt1,p.score span.s2lt2,p.score span.s3lt1,p.score span.s4lt2{color:#ff0!important}p.score span.s4lt1,p.score span.s5lt1{color:#3f3!important}p.score span.s0lt2,p.score span.s3lt2,p.score span.s5lt2{color:transparent!important}.heimu,.heimu a{background-color:#252525;color:#252525}
   </style>
 </head>
 
@@ -66,107 +71,9 @@
     <h4 class="text-muted" lang="en">Yùnzhuǎn Dà-shùjù (Big Data for Train Travel in China, YZDSJ or BD4TTC) | About us</h4>
     <p><span>一个小小的个人网页，正在建设中……如有疑问，请联系管理员（前往<a href="#plq">评论区</a>）。</span><br>
     <span class="text-muted" lang="en">A brunch of personal web pages, under construction... Any question please contact Kina or just <a href="#plq">comment</a> us.</span></p>
-    <div class="card">
-      <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs" id="TabProf" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="tab_kina" data-toggle="tab" href="#prof_kina" role="tab"　aria-controls="prof_kina" aria-selected="true">木菜(Kina)</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="tab-woo" data-toggle="tab" href="#prof_woo" role="tab" aria-controls="prof_woo"
-              aria-selected="false">WooBokMan(hbw)</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="tab-xls" data-toggle="tab" href="#prof_xls" role="tab" aria-controls="prof_xls"
-              aria-selected="false">佳绩佳期(xls)</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="tab-2808" data-toggle="tab" href="#prof_2808" role="tab" aria-controls="prof_2808"
-              aria-selected="false">2808</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="tab-pchxiao" data-toggle="tab" href="#prof_pchxiao" role="tab" aria-controls="prof_pchxiao"
-              aria-selected="false">pchxiao</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="tab-uiharu" data-toggle="tab" href="#prof_uiharu" role="tab" aria-controls="prof_uiharu"
-              aria-selected="false">夏雨荷</a>
-          </li>
-        </ul>
-      </div>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="prof_kina" role="tabpanel" aria-labelledby="tab_kina">
-          <div class="card-body">
-            <h5 class="card-title">木菜(Kina)</h5>
-            <h6 class="card-subtitle mb-2 text-muted">
-              <span>系统负责人</span>
-              <span lang="en">Supervisor</span>
-            </h6>
-            <p class="card-text">北京一大学车辆工程本科在读，常驻大爷局和套局</p>
-            <p class="card-text">邮箱(E-mail)：<img src="./img/kinamail.png" /></p>
-            <p class="card-text" lang="zh">請將微軟圖標替換爲 <kbd>@</kbd> 符號。歡迎以中文、英文或日文來信。</p>
-            <p class="card-text text-muted" lang="en">Please replace the logo with <kbd>@</kbd> sign. Messages in Chinese or English are preferred, but Japanese is also accepted.</p>
-            <p class="card-text text-muted" lang="ja">マイクロソフトのロゴを<kbd>@</kbd>に置き換えてください。中国語又は英語で聞きたいですけど、日本語がちょっと分かります。</p>
-            <a href="https://www.zhihu.com/people/kinarail" class="card-link text-nowrap"><i class="fab fa-zhihu"></i>知乎(Zhihu) @木菜Kina</a>
-            <a href="https://weibo.com/u/1821956332" class="card-link text-nowrap"><i class="fab fa-weibo"></i>微博(Weibo) @御坂木菜</a>
-            <a href="https://space.bilibili.com/94914539" class="card-link text-nowrap">Bilibili @御坂木菜nOfficial</a>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="prof_woo" role="tabpanel" aria-labelledby="tab-woo">
-          <div class="card-body">
-            <h5 class="card-title">WooBokMan(hbw)♂</h5>
-            <h6 class="card-subtitle mb-2 text-muted">资深优秀贡献者
-              <span lang="en">Experienced Valued Contributor</span>
-            </h6>
-            <p class="card-text">
-              西北民族大学应用化学在读，<del>纸局、美女局、电局伪车迷</del>。
-            </p>
-            <a href="https://weibo.com/u/5086061629" class="card-link text-nowrap"><i class="fab fa-weibo"></i>微博(Weibo) @WooBokMan</a>
-            <a href="https://space.bilibili.com/471010781" class="card-link text-nowrap">Bilibili @Woo_Bokman</a>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="prof_xls" role="tabpanel" aria-labelledby="tab-xls">
-          <div class="card-body">
-            <h5 class="card-title">佳绩佳期(xls)♀</h5>
-            <h6 class="card-subtitle mb-2 text-muted">吉祥物，优秀贡献者
-              <span lang="en">Valued Contributor</span>
-            </h6>
-            <p class="card-text">
-              2021-02-14: 开始挑战一年不吃某知名火锅店*底捞，详询管理员🙊
-              <span class="text-muted">(和群友异地面基吃*底捞不算)</span>
-            </p>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="prof_2808" role="tabpanel" aria-labelledby="tab-2808">
-          <div class="card-body">
-            <h5 class="card-title">2808</h5>
-            <h6 class="card-subtitle mb-2 text-muted">优秀贡献者
-              <span lang="en">Valued Contributor</span>
-            </h6>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="prof_pchxiao" role="tabpanel" aria-labelledby="tab-pchxiao">
-          <div class="card-body">
-            <h5 class="card-title">pchxiao</h5>
-            <h6 class="card-subtitle mb-2 text-muted">优秀贡献者
-              <span lang="en">Valued Contributor</span>
-            </h6>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="prof_uiharu" role="tabpanel" aria-labelledby="tab-uiharu">
-          <div class="card-body">
-            <h5 class="card-title">夏雨荷</h5>
-            <h6 class="card-subtitle mb-2 text-muted">优秀贡献者
-              <span lang="en">Valued Contributor</span>
-            </h6>
-            <p class="card-text">
-              高三文科在读，黑龙江伊春人，活的。没了。
-            </p>
-            <a href="https://space.bilibili.com/23890345" class="card-link text-nowrap">Bilibili @Yuko_Uiharu夏雨荷</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Person info - React -->
+    <div class="card" id="react_container_persons"></div>
+    <script src="./js/react_about_person.min.js"></script>
     <br/>
     <div class="container">
       <h3>趋势榜</h3><h4 class="text-muted" lang="en">Trend List</h4>
@@ -180,7 +87,7 @@
         <tr><td>6</td><td>福州</td><td>25</td><td>31</td></tr>
         <tr><td>7</td><td>兰州西</td><td>24</td><td>28</td></tr>
         <tr><td>8</td><td>天津</td><td>21</td><td>27</td></tr>
-        <tr><td>9</td><td>北京西</td><td>19</td><td>24</td></tr>
+        <tr><td>9</td><td>北京西</td><td>19</td><td>25</td></tr>
         <tr><td>10</td><td>北京</td><td>18</td><td>19</td></tr>
       </table>
     </div>
@@ -197,6 +104,12 @@
       <p class="text-muted" lang="en">It's a simplified version. For detailed version you may refer to <a class="link" href="helpUpdatehist.html">this page</a>.</p>
       <ul class="list-group">
         <li class="list-group-item border border-primary">
+          2021-05-10(v2.3.8)
+          <ul>
+            <li>新增车站：<var>沧州西</var>、<var>东台</var>、<var>鄂州</var>、<var>阜阳西</var>、<var>十渡</var>、<var>苏州北</var></li>
+          </ul>
+        </li>
+        <li class="list-group-item">
           2021-05-04(v2.3.7)
           <ul>
             <li>新增车站：<var>北京大兴</var>、<var>古交</var>、<var>菏泽</var>、<var>黄村</var>、<var>黄山</var>、<var>聊城</var>、<var>灵石</var>、<var>庐江</var>、<var>庐江西</var>、<var>平遥</var>、<var>芜湖</var>、<var>延吉西</var></li>
@@ -282,7 +195,7 @@
   <a id="plq"></a>
   <div id="vcomments" class="container"></div>
   <script>
-      new Valine({el: '#vcomments',appId: 'VY3q0lDUnkBNoCLciW7W4tCC-gzGzoHsz',appKey: 'RUb9iXuGiAK80y4rc9J2zN65'})
+      new Valine({el: '#vcomments',appId: 'VY3q0lDUnkBNoCLciW7W4tCC-gzGzoHsz',appKey: 'RUb9iXuGiAK80y4rc9J2zN65', visitor: true, enableQQ: true, requiredFields: ['nick']})
   </script>
   <!--shinobi1--><script type="text/javascript" src="//xa.shinobi.jp/ufo/190138801"></script><noscript><a href="//xa.shinobi.jp/bin/gg?190138801" target="_blank"><img src="//xa.shinobi.jp/bin/ll?190138801" border="0"></a><br><span style="font-size:9px"><img style="margin:0;vertical-align:text-bottom;" src="//img.shinobi.jp/tadaima/fj.gif" width="19" height="11"> </span></noscript><!--shinobi2-->
   <footer class="container">

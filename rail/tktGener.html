@@ -142,6 +142,7 @@
       var tktdate = document.getElementById('tktdate').value;
       var recdate = document.getElementById('recdate').value;
       var tktdesc = document.getElementById('tktdesc').value;
+      var tktfullnum = document.getElementById('tktfullnum').value;
       if (typeof (score) != "number") score = 0;
       var pj = "票质" + txt[score];
       if (typeof (ad) != "boolean") ad = false;
@@ -173,6 +174,7 @@
       }
       var t = genFuncCode();
       if (t != 0) dicary.func=t;
+      if (tktfullnum != "") dicary.tktid = tktfullnum;
       if (tktdesc != "") dic_text_arr.push(tktdesc);
       var dic_text = dic_text_arr.join();
       if (dic_text != "") dicary.text = dic_text;
@@ -508,6 +510,11 @@
             </td>
           </tr>
         </table>
+      </div>
+      <div class="form-group">
+        <label for="tktdesc">去除前十位后的完整票号:</label>
+        <input type="text" class="form-control" id="tktfullnum" placeholder="例如：0601A114514" size="21" pattern="[0-9,\*]{4}[A-Z,\*][0-9,\*]{6}" maxlength="21" title="请输入去除前十位后的完整票号。">
+        <small class="text-muted">去除前十位后的完整票号，缺失位用<code>*</code>号补齐。本栏数据仅用于内部检查使用，不会对外公开，也可以不填写。</small>
       </div>
       <div class="form-group">
         <label for="tktdesc">其他描述:</label>
