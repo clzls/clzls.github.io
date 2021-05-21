@@ -20,7 +20,7 @@
   <!-- React END -->
   <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   <style>
-    body{padding-top:4em;}img.ptimg{width:300px;max-width:100%;height:auto}p.score span.s0lt1,p.score span.s1lt1{color:red!important}p.score span.s1lt2,p.score span.s2lt1,p.score span.s2lt2,p.score span.s3lt1,p.score span.s4lt2{color:#ff0!important}p.score span.s4lt1,p.score span.s5lt1{color:#3f3!important}p.score span.s0lt2,p.score span.s3lt2,p.score span.s5lt2{color:transparent!important}.heimu,.heimu a{background-color:#252525;color:#252525}
+    body{padding-top:4em;}img.ptimg{width:300px;max-width:100%;height:auto}p.score span.s0lt1,p.score span.s1lt1{color:red!important}p.score span.s1lt2,p.score span.s2lt1,p.score span.s2lt2,p.score span.s3lt1,p.score span.s4lt2{color:#ff0!important}p.score span.s4lt1,p.score span.s5lt1{color:#3f3!important}p.score span.s0lt2,p.score span.s3lt2,p.score span.s5lt2{color:transparent!important}.heimu,.heimu a{background-color:#252525;color:#252525}a.promo{word-break: break-all}
   </style>
 </head>
 
@@ -28,7 +28,6 @@
   <a id="top"></a>
   <nav class="navbar navbar-expand-sm fixed-top navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="./tktmach_latest.html">运转大数据</a>
-    <span class="navbar-text"> By Kina(木菜)</span>
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="./tktGener.html">生成器</a>
@@ -45,8 +44,8 @@
   </div>
   <div class="container">
     项目网址：
-    <a href="https://kinarail.gitee.io/ticket_stat/tktmach_latest.html">
-      https://kinarail.gitee.io/ticket_stat/tktmach_latest.html
+    <a href="https://kinarail.gitee.io/ticket_stat/tktmach_latest.html" class="promo">
+      kinarail.gitee.io/ticket_stat/tktmach_latest.html
     </a>
     <p></p>
     <div class="container">
@@ -82,19 +81,24 @@
         <tr><td>1</td><td>郑州东</td><td>46</td><td>58</td></tr>
         <tr><td>2</td><td>郑州</td><td>41</td><td>50</td></tr>
         <tr><td>3</td><td>杭州东</td><td>30</td><td>35</td></tr>
-        <tr><td>4</td><td>北京南</td><td>29</td><td>29</td></tr>
+        <tr><td>4</td><td>北京南</td><td>30</td><td>31</td></tr>
         <tr><td>5</td><td>兰州</td><td>26</td><td>30</td></tr>
         <tr><td>6</td><td>福州</td><td>25</td><td>31</td></tr>
         <tr><td>7</td><td>兰州西</td><td>24</td><td>28</td></tr>
-        <tr><td>8</td><td>天津</td><td>21</td><td>27</td></tr>
-        <tr><td>9</td><td>北京西</td><td>19</td><td>25</td></tr>
-        <tr><td>10</td><td>北京</td><td>18</td><td>19</td></tr>
+        <tr><td>8</td><td>上海</td><td>22</td><td>23</td></tr>
+        <tr><td>9</td><td>天津</td><td>21</td><td>28</td></tr>
+        <tr><td>10</td><td>北京西</td><td>19</td><td>25</td></tr>
       </table>
     </div>
     <div class="container">
       <h3>常见票纸类型</h3>
       <article id="tktpaperdesc" class="container"></article>
     </div>
+    <script>
+      tktpaperdesc = document.getElementById('tktpaperdesc');
+      getTktRange().forEach(element => {
+        tktpaperdesc.innerHTML += "<p>代码" + element.toString() + "：" + getTktType(element) + "</p>";});
+    </script>
     <article class="container">
       <h3>版本迭代史</h3>
       <h4 class="text-muted" lang="ja">Update log 更新日誌</h4>
@@ -104,37 +108,17 @@
       <p class="text-muted" lang="en">It's a simplified version. For detailed version you may refer to <a class="link" href="helpUpdatehist.html">this page</a>.</p>
       <ul class="list-group">
         <li class="list-group-item border border-primary">
+          2021-05-20(v2.3.9)
+          <ul>
+            <li>由于学业原因，更新将暂缓。</li>
+            <li>新增车站：<var>霸州</var>、<var>滨海港</var>、<var>昌平</var>、<var>长春</var>、<var>长春西</var>、<var>常州</var>、<var>德惠</var>、<var>德州</var>、<var>阜宁</var>、<var>阜宁南</var>、<var>海安</var>、<var>蓟州北</var>、<var>建湖</var>、<var>龙嘉</var>、<var>马鞍山</var>、<var>蓬莱市</var>、<var>如东</var>、<var>射阳</var>、<var>四平</var>、<var>四平东</var>、<var>泰州</var>、<var>盐城</var>、<var>盐城大丰</var></li>
+            <li>车站总数达到499个，机器数量1263台。</li>
+          </ul>
+        </li>
+        <li class="list-group-item">
           2021-05-10(v2.3.8)
           <ul>
             <li>新增车站：<var>沧州西</var>、<var>东台</var>、<var>鄂州</var>、<var>阜阳西</var>、<var>十渡</var>、<var>苏州北</var></li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          2021-05-04(v2.3.7)
-          <ul>
-            <li>新增车站：<var>北京大兴</var>、<var>古交</var>、<var>菏泽</var>、<var>黄村</var>、<var>黄山</var>、<var>聊城</var>、<var>灵石</var>、<var>庐江</var>、<var>庐江西</var>、<var>平遥</var>、<var>芜湖</var>、<var>延吉西</var></li>
-            <li>部分数据仍待录入。</li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          2021-04-26(v2.3.6)
-          <ul>
-            <li>新增车站：<var>大冶北</var>、<var>华山北</var></li>
-            <li>新增车站联合体：<var>宝成、成渝线(线路)</var>、<var>昌福线(线路)</var>、<var>成渝高速线(线路)</var>、<var>抚顺线(线路)</var>、<var>广九线(线路)</var>、<var>广深港高速线(线路)</var>、<var>杭深线(线路)</var>、<var>辽宁沈阳(城市)</var>、<var>沈丹客专线(线路)</var></li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          2021-04-19(v2.3.5)
-          <ul>
-            <li>
-              新增车站：<var>河源</var>、<var>虎门</var>、<var>淮北</var>、<var>漳浦</var>
-            </li>
-            <li>
-              新增车站联合体：<var>衢宁线(线路)</var>
-            </li>
-            <li>
-              车站联合体新增了一些额外数据。
-            </li>
           </ul>
         </li>
         <li class="list-group-item">
@@ -149,9 +133,6 @@
           </ul>
         </li>
         <li class="list-group-item">
-          ……
-        </li>
-        <li class="list-group-item">
           2021-02-18(v2.2.0pre OR v2.1.3):
           <ul>
             <li>新增车站：<var>北京朝阳</var>、<var>长治东</var>、<var>丹阳</var>、<var>晋城</var>、<var>晋城东</var>、<var>汤逊湖</var>、<var>铜陵</var>、<var>西华</var>、<var>鄢陵</var>。出于维护历史记录的需要新增的有：<var>清华园</var></li>
@@ -160,9 +141,6 @@
             <li>于 2021-02-14 达成收录 1000 个位置的成就！</li>
             <li>达成收录 416 个车站的成就！</li>
           </ul>
-        </li>
-        <li class="list-group-item">
-          ……
         </li>
         <li class="list-group-item">
           2021-01-16(v2.1.0):
@@ -182,9 +160,6 @@
             <li lang="en">Pinyin information for non Mandarin users. Use this site with extra care and DO NOT rely on it when planning a travel and / or traveling.</li>
             <li lang="ja">中国語<ruby>拼音<rp>(</rp><rt>ピンイン</rt><rp>)</rp></ruby>情報、ご利用くださいませ。掲載した情報（間違い等）によって引き起こされた（直接的、間接的を問わず）損害に付いて、一切責任を負いません。</li>
           </ul>
-        </li>
-        <li class="list-group-item">
-          ……
         </li>
         <li class="list-group-item">
           2020-05-10: 首个公开的版本。
