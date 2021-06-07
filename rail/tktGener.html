@@ -82,24 +82,18 @@
       $("#descSelTxt_pmbz").change(function () {
         $('#descSel_pmbz').prop('checked', Boolean($("#descSelTxt_pmbz").val()));
       });
-      $("#sel1").click(function () {
-        var t = to_bool($('#sel1').val());
+      $("#sel1").change(function () {
+        var t = parseInt($('#sel1').val());
         var k = $('#sel4').children();
-        if (t === null)
-          k.attr('disabled', false);
-        else
-          for (var i = 0; i < k.length; ++i) {
-            var tp = $(k[i]);
-            var tpv = parseInt(tp.attr('data-red'));
-            if (tpv == 0) //blue
-              tp.attr('disabled', t);
-            else if (tpv == 1) //red
-              tp.attr('disabled', !t);
-            else
-              tp.attr('disabled', false);
-          }
+        k.attr('disabled', false);
+        for (var i = 0; i < k.length; ++i) {
+          var tp = $(k[i]);
+          var tpv = parseInt(tp.attr('data-red'));
+          //tp.attr('disabled', t != tpv);
+          (t != tpv)?tp.hide():tp.show();
+        }
       });
-      $("#sel1").click();
+      $("#sel1").change();
       $("#sel4").change(function () {
         $('#paper_example').fadeOut('fast', function () {
           sub_tkt(parseInt($("#sel4").val()));
@@ -133,20 +127,19 @@
       var tktno = $('#tktno').val();
       var userid = document.getElementById('userid').value;
       var ad = document.getElementById('sel_ad').checked;
-      var p = to_bool($('#sel1').val());
+      var p = parseInt($('#sel1').val());
       var red2blue = $("#sel_red2blue").prop("checked");
-      var guide_needed = $("#sel_guide_needed").prop("checked");
-      var recent = to_bool($('#sel2').val());
+      var recent = parseInt($('#sel2').val());
       var score = parseInt($('#sel3').val());
       var papertype = parseInt($('#sel4').val());
-      var tktdate = document.getElementById('tktdate').value;
-      var recdate = document.getElementById('recdate').value;
-      var tktdesc = document.getElementById('tktdesc').value;
-      var tktfullnum = document.getElementById('tktfullnum').value;
+      var tktdate = $('#tktdate').val();
+      var recdate = $('#recdate').val();
+      var tktdesc = $('#tktdesc').val();
+      var tktfullnum = $('#tktfullnum').val();
       if (typeof (score) != "number") score = 0;
       var pj = "票质" + txt[score];
-      if (typeof (ad) != "boolean") ad = false;
-      if (p) score++;
+      if (typeof (ad) != "boolean") ad = 0;
+      if (p==1) score++;
       $('#scores').html('<p class="score mb-1">评分 Score: ' +
         score + ' 分<span class="bg-dark s' + score +
         'lt1">◉</span><span class="bg-dark s' + score +
@@ -158,15 +151,15 @@
         "date_tkt": tktdate,
         "memo": (p ? "红票," : "") + pj + "(" + tktdate + "," + userid + ")",
         "origin": userid,
-        "papertype": papertype,
+        "PaperT": papertype,
         "recent": recent,
-        "red": p,
-        "remove": $("#sel_rem").prop("checked"),
         "score": score
       };
-      if (guide_needed) dicary.guide_needed = true;
-      if (red2blue) dicary.red2blue = true;
-      (papertype == 255) ? dicary.papertype = null : 0;
+      if (p!=2) dicary.red = p;
+      if ($("#sel_rem").prop("checked")) dicary.remove = 1;
+      if ($("#sel_guide_needed").prop("checked")) dicary.NeedGuide = 1;
+      if (red2blue) dicary.red2blue = 1;
+      (papertype == 255) ? dicary.PaperT = null : 0;
       var dic_text_arr = [];
       (ad ? dic_text_arr.push("票面广告") : 0);
       if ($("#descSel_pmbz").prop("checked")) {
@@ -261,17 +254,17 @@
         <div class="col">
           <label for="sel1">是否红票</label>
           <select class="form-control" id="sel1">
-            <option value="true">红票</option>
-            <option value="false" selected>蓝票</option>
-            <option value="null">其他</option>
+            <option value="1">红票</option>
+            <option value="0" selected>蓝票</option>
+            <option value="2">其他</option>
           </select>
         </div>
         <div class="col">
           <label for="sel2">时效性</label>
           <select class="form-control" id="sel2">
-            <option value="true" selected>新鲜记录，仍然有效</option>
-            <option value="null">未知</option>
-            <option value="false">已经无效或超过两年</option>
+            <option value="2" selected>新鲜记录，仍然有效</option>
+            <option value="1">超过半年，仍然有效或状态未知</option>
+            <option value="0">已经无效或超过两年</option>
           </select>
         </div>
       </div>
@@ -288,21 +281,26 @@
       <div class="form-group">
         <label for="sel4">背面票纸:（检查背面“乘车须知”的字体）</label>
         <select class="form-control" id="sel4">
-          <option value="1" data-red="0">蓝票黑体字（空两格）票纸</option>
-          <option value="2" data-red="0">蓝票宋体字（左对齐）票纸</option>
-          <option value="3" data-red="0">蓝票黑体字（左对齐）票纸</option>
-          <option value="10" data-red="0">蓝票黑体字（其他）票纸</option>
-          <option value="102" data-red="0">蓝票宋体字（居中）票纸</option>
-          <option value="103" data-red="0">蓝票宋体字（左对齐，旧版1）票纸</option>
-          <option value="200" data-red="0">蓝票宋体字（其他）票纸</option>
-          <option value="19" data-red="0">不明蓝票票纸</option>
-          <option value="21" data-red="1">红票宋体空两格票纸</option>
-          <option value="22" data-red="1">第1类红票黑体左对齐票纸</option>
-          <option value="23" data-red="1">第2类红票黑体左对齐票纸</option>
-          <option value="24" data-red="1">第3类红票黑体左对齐票纸</option>
-          <option value="41" data-red="1">第1类红票宋体居中票纸</option>
-          <option value="45" data-red="1">红票宋体（左对齐）票纸</option>
-          <option value="59" data-red="1">不明红票票纸</option>
+          <optgroup label="蓝票" data-red="0">
+            <option value="1" data-red="0">蓝票黑体字（空两格）票纸</option>
+            <option value="2" data-red="0">蓝票宋体字（左对齐）票纸</option>
+            <option value="3" data-red="0">蓝票黑体字（左对齐）票纸</option>
+            <option value="10" data-red="0">蓝票黑体字（其他）票纸</option>
+            <option value="102" data-red="0">蓝票宋体字（居中）票纸</option>
+            <option value="103" data-red="0">蓝票宋体字（左对齐，旧版1）票纸</option>
+            <option value="200" data-red="0">蓝票宋体字（其他）票纸</option>
+            <option value="19" data-red="0">不明蓝票票纸</option>
+          </optgroup>
+          <optgroup label="红票" data-red="1">
+            <option value="21" data-red="1">红票宋体空两格票纸</option>
+            <option value="22" data-red="1">第1类红票黑体左对齐票纸</option>
+            <option value="23" data-red="1">第2类红票黑体左对齐票纸</option>
+            <option value="24" data-red="1">第3类红票黑体左对齐票纸</option>
+            <option value="25" data-red="1">第4类红票黑体左对齐票纸</option>
+            <option value="41" data-red="1">第1类红票宋体居中票纸</option>
+            <option value="45" data-red="1">红票宋体（左对齐）票纸</option>
+            <option value="59" data-red="1">不明红票票纸</option>
+          </optgroup>
           <option value="255" data-red="2" selected>未知票纸</option>
         </select>
       </div>
