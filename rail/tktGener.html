@@ -53,137 +53,7 @@
     <p>5位车站号+2位售票方式号+3位售票窗口号</p>
     <p>售票机的窗口号可以从屏幕最底下获得。售票窗口的窗口号一般悬挂在窗口上，除非有特殊声明。</p>
   </div>
-  <script>
-    var today = new Date();
-    today = today.toISOString().split('T')[0];
-    $(document).ready(function () {
-      preset_date();
-      $("#staname1").change(function () {
-        var t = $("#staname1").val();
-        if (t.length > 0) {
-          $("#descSelTxt_pmbz").prop("placeholder", "例如：" + t);
-          $("#descSelTxt_pmbz").attr("placeholder", "例如：" + t);
-        }
-      });
-      $("#staname2").change(function () {
-        var t = $("#staname2").prop("placeholder");
-        if ((t.length > 0) && ($("#staname2").val().length==0)) {
-          $("#staname2").val(t);
-        }
-      });
-      $("#tktno").change(function () {
-        var t = parseInt($("#tktno").val()) % 100000;
-        if (t > 0) {
-          var msg = (t >= 30000)?((t/1000%100).toFixed().toString()+"-"+(t%1000).toFixed().toString()+"号?取票机"):((t < 10000)?((t%1000).toFixed().toString()+"号?窗口"):"代售点?");
-          $("#staname2").prop("placeholder", msg);
-          if ((msg.length>0) && ($("#staname2").val().length==0)) $("#staname2").val(msg);
-        }
-      });
-      $("#descSelTxt_pmbz").change(function () {
-        $('#descSel_pmbz').prop('checked', Boolean($("#descSelTxt_pmbz").val()));
-      });
-      $("#sel1").change(function () {
-        var t = parseInt($('#sel1').val());
-        var k = $('#sel4').children();
-        k.attr('disabled', false);
-        for (var i = 0; i < k.length; ++i) {
-          var tp = $(k[i]);
-          var tpv = parseInt(tp.attr('data-red'));
-          //tp.attr('disabled', t != tpv);
-          (t != tpv)?tp.hide():tp.show();
-        }
-      });
-      $("#sel1").change();
-      $("#sel4").change(function () {
-        $('#paper_example').fadeOut('fast', function () {
-          sub_tkt(parseInt($("#sel4").val()));
-        });
-      });
-    });
-    var txt = ["极差", "很差", "略差", "尚可", "佳"];
-    function to_bool(val) {
-      var p = eval(val);
-      if (typeof (p) != "boolean") p = null;
-      return p;
-    }
-    function genFuncCode() {
-      var a11 = $('#sel_11').prop("checked");var a12 = $('#sel_12').prop("checked");
-      var a21 = $('#sel_21').prop("checked");var a22 = $('#sel_22').prop("checked");
-      var a31 = $('#sel_31').prop("checked");var a32 = $('#sel_32').prop("checked");
-      var a41 = $('#sel_41').prop("checked");var a42 = $('#sel_42').prop("checked");
-      var a51 = $('#sel_51').prop("checked");var a52 = $('#sel_52').prop("checked");
-      var a61 = $('#sel_61').prop("checked");var a62 = $('#sel_62').prop("checked");
-      var a71 = $('#sel_71').prop("checked");var a72 = $('#sel_72').prop("checked");
-      var a81 = $('#sel_81').prop("checked");var a82 = $('#sel_82').prop("checked");
-      var a91 = $('#sel_91').prop("checked");var a92 = $('#sel_92').prop("checked");
-      var a101 = $('#sel_101').prop("checked");var a102 = $('#sel_102').prop("checked");
-      var a111 = $('#sel_111').prop("checked");var a112 = $('#sel_112').prop("checked");
-      var a121 = $('#sel_121').prop("checked");var a122 = $('#sel_122').prop("checked");
-      var a131 = $('#sel_131').prop("checked");var a132 = $('#sel_132').prop("checked");
-      var a141 = $('#sel_141').prop("checked");var a142 = $('#sel_142').prop("checked");
-      return (a11?1:0)|(a12?2:0)|(a21?4:0)|(a22?8:0)|(a31?16:0)|(a32?32:0)|(a41?64:0)|(a42?128:0)|(a51?256:0)|(a52?512:0)|(a61?1024:0)|(a62?2048:0)|(a71?4096:0)|(a72?8192:0)|(a81?1<<14:0)|(a82?1<<15:0)|(a91?1<<16:0)|(a92?1<<17:0)|(a101?1<<18:0)|(a102?1<<19:0)|(a111?1<<20:0)|(a112?1<<21:0)|(a121?1<<22:0)|(a122?1<<23:0)|(a131?1<<24:0)|(a132?1<<25:0)|(a141?1<<26:0)|(a142?1<<27:0)
-    }
-    function sub() {
-      var tktno = $('#tktno').val();
-      var userid = document.getElementById('userid').value;
-      var ad = document.getElementById('sel_ad').checked;
-      var p = parseInt($('#sel1').val());
-      var red2blue = $("#sel_red2blue").prop("checked");
-      var recent = parseInt($('#sel2').val());
-      var score = parseInt($('#sel3').val());
-      var papertype = parseInt($('#sel4').val());
-      var tktdate = $('#tktdate').val();
-      var recdate = $('#recdate').val();
-      var tktdesc = $('#tktdesc').val();
-      var tktfullnum = $('#tktfullnum').val();
-      if (typeof (score) != "number") score = 0;
-      var pj = "票质" + txt[score];
-      if (typeof (ad) != "boolean") ad = 0;
-      if (p==1) score++;
-      $('#scores').html('<p class="score mb-1">评分 Score: ' +
-        score + ' 分<span class="bg-dark s' + score +
-        'lt1">◉</span><span class="bg-dark s' + score +
-        'lt2">◉</span></p>');
-      var dicary = {
-        "ad": ad,
-        "date_log": [today],
-        "date_rec": recdate,
-        "date_tkt": tktdate,
-        "memo": (p ? "红票," : "") + pj + "(" + tktdate + "," + userid + ")",
-        "origin": userid,
-        "PaperT": papertype,
-        "recent": recent,
-        "score": score
-      };
-      if (p!=2) dicary.red = p;
-      if ($("#sel_rem").prop("checked")) dicary.remove = 1;
-      if ($("#sel_guide_needed").prop("checked")) dicary.NeedGuide = 1;
-      if (red2blue) dicary.red2blue = 1;
-      (papertype == 255) ? dicary.PaperT = null : 0;
-      var dic_text_arr = [];
-      (ad ? dic_text_arr.push("票面广告") : 0);
-      if ($("#descSel_pmbz").prop("checked")) {
-        dicary.pmbz = $("#descSelTxt_pmbz").val();
-      }
-      var t = genFuncCode();
-      if (t != 0) dicary.func=t;
-      if (tktfullnum != "") dicary.tktid = tktfullnum;
-      if (tktdesc != "") dic_text_arr.push(tktdesc);
-      var dic_text = dic_text_arr.join();
-      if (dic_text != "") dicary.text = dic_text;
-      document.getElementById('jso').innerText = (tktno) ? ("(" + tktno + ",'" + $('#staname1').val() + " " + $('#staname2').val() + "','" + JSON.stringify([dicary]) + "',NULL)") : JSON.stringify(dicary);
-    }
-    function preset_date() {
-      document.getElementById('tktdate').value = today;
-      document.getElementById('recdate').value = today;
-    }
-    function sub_tkt(papertype) {
-      var x = getTktType(papertype);
-      $('#paper_example').html(x);
-      $('#paper_example').fadeIn('fast');
-      return x;
-    }
-  </script>
+  <script src="./js/code_gen.min.js"></script>
   <div class="container">
     <h2>票机数据收集表</h2>
     <p>注意：</p>
@@ -202,6 +72,11 @@
         <label for="tktno">票号前十位:</label>
         <input type="text" class="form-control" id="tktno" placeholder="1001000033" pattern="[1-9]\d{9}" required
           size="10" maxlength="10" title="请输入十位数字。">
+      </div>
+      <div class="form-group">
+        <label for="tktdesc">去除前十位后的完整票号:</label>
+        <input type="text" class="form-control" id="tktfullnum" placeholder="例如：0601A114514" size="21" pattern="[0-9,\*]{4}[A-Z,\*][0-9,\*]{6}" maxlength="21" title="请输入去除前十位后的完整票号。">
+        <small class="text-muted">去除前十位后的完整票号，缺失位用<code>*</code>号补齐。本栏数据仅用于内部检查使用，不会对外公开，也可以不填写。</small>
       </div>
       <div class="form-row">
         <div class="col">
@@ -270,13 +145,8 @@
       </div>
       <div class="form-group">
         <label for="sel3">票质:</label>
-        <select class="form-control" id="sel3">
-          <option value="0">0分/极差：半年左右即模糊不清，并有缺失、白条等</option>
-          <option value="1">1分/很差：一年左右即模糊不清，缺失、白条等</option>
-          <option value="2" selected>2分/一般(略差)：略有模糊，略有不整齐</option>
-          <option value="3">3分/尚可：半年左右仍清晰可认，无白条</option>
-          <option value="4">4分/佳：一年仍清晰锐利，无白条、缺失</option>
-        </select>
+        <input type="range" class="form-control-range" id="sel3" min="0" max="4" value="3">
+        <span id="sel3resl"></span>
       </div>
       <div class="form-group">
         <label for="sel4">背面票纸:（检查背面“乘车须知”的字体）</label>
@@ -324,195 +194,196 @@
       <div class="form-group">
         票机功能信息:
         <span class="text-danger">本栏目尚未开放，如不确定请先不要填写</span>
-        <table class="table">
-          <tr>
-            <th>取报销凭证</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_11">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_12">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>行程信息单</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_21">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_22">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>会员服务</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_31">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_32">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>购票</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_41">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_42">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>支持现金</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_51">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_52">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>支持银行卡</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_61">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_62">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>支持电子支付</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_71">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_72">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>支持护照读取</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_81">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_82">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>优惠资质绑定</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_91">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_92">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>信息查询</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_101">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_102">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>取电话订票</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_111">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_112">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>退票</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_121">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_122">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>已取报销凭证的退票</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_131">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_132">具有该功能
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <th>银通卡、e卡通换票</th>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_141">确定
-              </label>
-            </td>
-            <td>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="sel_142">具有该功能
-              </label>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="form-group">
-        <label for="tktdesc">去除前十位后的完整票号:</label>
-        <input type="text" class="form-control" id="tktfullnum" placeholder="例如：0601A114514" size="21" pattern="[0-9,\*]{4}[A-Z,\*][0-9,\*]{6}" maxlength="21" title="请输入去除前十位后的完整票号。">
-        <small class="text-muted">去除前十位后的完整票号，缺失位用<code>*</code>号补齐。本栏数据仅用于内部检查使用，不会对外公开，也可以不填写。</small>
+        <details>
+          <summary>票机功能信息表</summary>
+          <p>
+            <a id="btn-clear-func" class="btn btn-warning btn-sm" href="#">清空功能表</a>
+          </p>
+          <table class="table" id="tab-func">
+            <tr>
+              <th>取报销凭证</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_11">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_12">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>行程信息单</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_21">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_22">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>会员服务</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_31">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_32">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>购票</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_41">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_42">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>支持现金</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_51">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_52">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>支持银行卡</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_61">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_62">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>支持电子支付</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_71">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_72">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>支持护照读取</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_81">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_82">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>优惠资质绑定</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_91">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_92">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>信息查询</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_101">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_102">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>取电话订票</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_111">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_112">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>退票</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_121">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_122">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>已取报销凭证的退票</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_131">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_132">具有该功能
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <th>银通卡、e卡通换票</th>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_141">确定
+                </label>
+              </td>
+              <td>
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="sel_142">具有该功能
+                </label>
+              </td>
+            </tr>
+          </table>
+        </details>
       </div>
       <div class="form-group">
         <label for="tktdesc">其他描述:</label>
