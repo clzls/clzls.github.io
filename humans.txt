@@ -10,6 +10,7 @@
 
 /* SITE */
 	Last update:2017/07/22
-	Language: English / Simplified Chinese
-	Doctype:HTML
+	Language: English / Simplified Chinese / Japanese
+	Doctype: HTML
+	Program Languages: Python, JS
 	IDE: Notepad++, VS Code
