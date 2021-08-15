@@ -80,7 +80,7 @@
       <div class="form-group">
         <label for="tktdesc">去除前十位后的完整票号:</label>
         <input type="text" class="form-control" id="tktfullnum" placeholder="例如：0601A114514" size="21" pattern="[0-9,\*]{4}[A-Z,\*][0-9,\*]{6}" maxlength="21" title="请输入去除前十位后的完整票号。">
-        <small class="text-muted">去除前十位后的完整票号，缺失位用<code>*</code>号补齐。本栏数据仅用于内部检查使用，不会对外公开，也可以不填写。</small>
+        <small class="text-muted">去除前十位后的完整票号，缺失位用<code>*</code>号补齐。本栏数据仅用于内部统计和检查使用，不会对外公开。</small>
       </div>
       <div class="form-row">
         <div class="col">
@@ -170,7 +170,9 @@
             <option value="22" data-red="1">第1类红票黑体左对齐票纸</option>
             <option value="23" data-red="1">第2类红票黑体左对齐票纸</option>
             <option value="24" data-red="1">第3类红票黑体左对齐票纸</option>
-            <option value="25" data-red="1">第4类红票黑体左对齐票纸</option>
+            <option value="25" data-red="1">第4类红票长黑体左对齐票纸</option>
+            <option value="26" data-red="1">第5类红票长黑体左对齐票纸</option>
+            <option value="31" data-red="1">第1类红票黑体空两格票纸</option>
             <option value="41" data-red="1">第1类红票宋体居中票纸</option>
             <option value="45" data-red="1">红票宋体（左对齐）票纸</option>
             <option value="59" data-red="1">不明红票票纸</option>
