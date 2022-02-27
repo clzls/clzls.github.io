@@ -66,7 +66,7 @@
       <li class="list-group-item">现在表格具有自动填写机器名的功能，填写时请按照先上后下的顺序。需要手动触发填写时，可以清空机器名一栏。</li>
       <li class="list-group-item list-group-item-info">据悉，原则上记账日期晚于 2021-04-03 之车票不再显示“**售”，而直接显示“**”（车站名等）。自北京时间 2021-04-03 00:00 始至 2021-05-03 00:00 止，所有车票均需标注票号后注，如“福州售”“北京西”。</li>
     </ol>
-    <form class="was-validated" action="javascript:sub()" onchange="sub()">
+    <form class="was-validated" action="javascript:sub2()" onchange="sub()">
       <div class="form-group">
         <label for="userid">用户名：</label>
         <input type="text" class="form-control" id="userid" placeholder="热心网友" required size="12" maxlength="12"
@@ -156,13 +156,14 @@
         <label for="sel4">背面票纸:（检查背面“乘车须知”的字体）</label>
         <select class="form-control" id="sel4">
           <optgroup label="蓝票" data-red="0">
-            <option value="1" data-red="0">蓝票黑体字（空两格）票纸</option>
-            <option value="2" data-red="0">蓝票宋体字（左对齐）票纸</option>
-            <option value="3" data-red="0">蓝票黑体字（左对齐）票纸</option>
-            <option value="10" data-red="0">蓝票黑体字（其他）票纸</option>
-            <option value="102" data-red="0">蓝票宋体字（居中）票纸</option>
-            <option value="103" data-red="0">蓝票宋体字（左对齐，旧版1）票纸</option>
-            <option value="200" data-red="0">蓝票宋体字（其他）票纸</option>
+            <option value="1" data-red="0">蓝票（黑体空两格）票纸</option>
+            <option value="2" data-red="0">蓝票（宋体左对齐）票纸</option>
+            <option value="3" data-red="0">蓝票（黑体左对齐）票纸</option>
+            <option value="10" data-red="0">蓝票（黑体其他）票纸</option>
+            <option value="102" data-red="0">蓝票（宋体居中）票纸</option>
+            <option value="103" data-red="0">蓝票（宋体左对齐，旧版1）票纸</option>
+            <option value="121" data-red="0">蓝票（宋体左对齐，冬奥主题）票纸</option>
+            <option value="200" data-red="0">蓝票（宋体其他）票纸</option>
             <option value="19" data-red="0">不明蓝票票纸</option>
           </optgroup>
           <optgroup label="红票" data-red="1">
@@ -174,7 +175,7 @@
             <option value="26" data-red="1">第5类红票长黑体左对齐票纸</option>
             <option value="31" data-red="1">第1类红票黑体空两格票纸</option>
             <option value="41" data-red="1">第1类红票宋体居中票纸</option>
-            <option value="45" data-red="1">红票宋体（左对齐）票纸</option>
+            <option value="45" data-red="1">红票（宋体左对齐）票纸</option>
             <option value="59" data-red="1">不明红票票纸</option>
           </optgroup>
           <option value="255" data-red="2" selected>未知票纸</option>
@@ -390,29 +391,23 @@
             </tr>
             <tr>
               <th>计次/定期票</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_151">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_152">具有该功能
-                </label>
-              </td>
+              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_151">确定</label></td>
+              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_152">具有该功能</label></td>
             </tr>
             <tr>
               <th>改签</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_161">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_162">具有该功能
-                </label>
-              </td>
+              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_161">确定</label></td>
+              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_162">具有该功能</label></td>
+            </tr>
+            <tr>
+              <th>联系方式预留/变更</th>
+              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_171">确定</label></td>
+              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_172">具有该功能</label></td>
+            </tr>
+            <tr>
+              <th>英语服务</th>
+              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_181">确定</label></td>
+              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_182">具有该功能</label></td>
             </tr>
           </table>
         </details>
@@ -423,6 +418,7 @@
       </div>
       <button type="reset" class="btn btn-warning" onclick="preset_date()">清空</button>
       <button type="submit" class="btn btn-primary">生成代码</button>
+      <button type="button" class="btn btn-primary" onclick="sub2()">生成并复制</button>
       <div class="form-group">
         <label for="jso">请将以下代码 <strong>复制</strong> 给管理员：</label>
         <textarea class="form-control" rows="5" id="jso" readonly></textarea>
