@@ -1,6 +1,6 @@
 /* TEAM */
-	Chef:clzls
-	Contact: adult [at] live.cn
+	Chef: Kina (@clzls)
+	Contact: myad [at] live.cn
 	Twitter: @clzlsclzls
 	From: Fujian, China
 
@@ -9,8 +9,8 @@
 	Currently empty.
 
 /* SITE */
-	Last update:2017/07/22
+	Last update: 2022/07/05
 	Language: English / Simplified Chinese / Japanese
 	Doctype: HTML
-	Program Languages: Python, JS
-	IDE: Notepad++, VS Code
+	Program Languages: Python, Nim, JS
+	Editor: VS Code
