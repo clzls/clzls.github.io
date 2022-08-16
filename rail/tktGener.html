@@ -412,9 +412,17 @@
           </table>
         </details>
       </div>
-      <div class="form-group">
-        <label for="machbrand">机器厂商：（选填）</label>
-        <input type="text" class="form-control" id="machbrand" placeholder="铁科院" size="32" maxlength="32" title="请输入机器的生产厂商。">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="machbrandLbl">机器厂商</span>
+        </div>
+        <select class="form-control col" id="machbrandSel" aria-labelledby="machbrandLbl">
+          <option value="0">未指定 / 其他</option>
+          <option value="1">铁科院 CARS</option>
+          <option value="2">通号 CRSC</option>
+          <option value="11">易程 Easyway</option>
+        </select>
+        <input type="text" class="form-control" id="machbrandTxt" placeholder="例如：易程" size="16" maxlength="16" title="请输入机器的生产厂商。">
       </div>
       <div class="form-group">
         <label for="tktdesc">其他描述:</label>

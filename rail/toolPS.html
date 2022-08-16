@@ -7,27 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="keyword" content="运转大数据" />
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<p id="demo">点击这个按钮，获得您的坐标：</p>
-<button onclick="getLocation()">试一下</button>
-<script>
-var x=document.getElementById("demo");
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
-    navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
-  }
-function showPosition(position)
-  {
-  x.innerHTML="纬度: " + position.coords.latitude + 
-  "<br />经度: " + position.coords.longitude + "<br /><img src=\"http://api.tianditu.gov.cn/staticimage?center=" + position.coords.longitude + "," + position.coords.latitude + "&width=400&height=300&zoom=16&markers=" + position.coords.longitude + "," + position.coords.latitude + "&markerStyles=-1,A,My%20Pos&tk=de83979a6a2f34703d9a16734dc51b50\"><br />[" + position.coords.latitude + "," + position.coords.longitude + "]";
-  }
-</script>
+  <div class="container">
+    <p id="demo">点击这个按钮，获得您的坐标：</p>
+    <button class="btn btn-primary" onclick="getLocation()">试一下</button>
+    <script>
+    var x=document.getElementById("demo");
+    function getLocation(){if(navigator.geolocation){navigator.geolocation.getCurrentPosition(showPosition)}else{x.innerHTML="Geolocation is not supported by this browser."}}
+    function showPosition(position) { x.innerHTML="纬度: " + position.coords.latitude + "<br />经度: " + position.coords.longitude + "<br /><img src=\"http://api.tianditu.gov.cn/staticimage?center=" + position.coords.longitude + "," + position.coords.latitude + "&width=400&height=300&zoom=16&markers=" + position.coords.longitude + "," + position.coords.latitude + "&markerStyles=-1,A,My%20Pos&tk=de83979a6a2f34703d9a16734dc51b50\"><br />[" + position.coords.latitude + "," + position.coords.longitude + "]";}
+    </script>
+  </div>
 </body>
 </html>
