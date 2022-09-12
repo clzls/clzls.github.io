@@ -1,9 +1,14 @@
 @SET GIT=git
 @SET ECHO=ECHO
-@SET VERSHRT=3.5.1
-@SET VERDATE=20220831
+@SET VERSHRT=3.5.2
+@SET VERDATE=20220910
 REM DO NOT leave any sensitive data or credentials HERE!
-%GIT% commit -s -m "Update %VERDATE% v%VERSHRT%"
+%GIT% commit -S -m "Update %VERDATE% v%VERSHRT%"
+IF ERRORLEVEL 1 GOTO EOF
 %GIT% tag -s -m "tktMach %VERSHRT%" v%VERSHRT%
+IF ERRORLEVEL 1 GOTO EOF
 %GIT% push --tags
+IF ERRORLEVEL 1 GOTO EOF
 %GIT% push
+IF ERRORLEVEL 1 GOTO EOF
+:EOF
