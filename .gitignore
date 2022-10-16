@@ -4,3 +4,4 @@ tmp-*
 *.out
 nppBackup
 .DS_Store
+/*.cmd
