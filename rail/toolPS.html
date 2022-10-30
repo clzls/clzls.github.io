@@ -14,7 +14,7 @@
     <button class="btn btn-primary" onclick="getLocation()">试一下</button>
     <script>
     var x=document.getElementById("demo");
-    function getLocation(){if(navigator.geolocation){navigator.geolocation.getCurrentPosition(showPosition)}else{x.innerHTML="Geolocation is not supported by this browser."}}
+    function getLocation(){navigator.geolocation?navigator.geolocation.getCurrentPosition(showPosition, e=>{x.innerHTML = err.message},{enableHighAccuracy:true}):x.innerHTML="浏览器不支持地理位置"}
     function showPosition(position) { x.innerHTML="纬度: " + position.coords.latitude + "<br />经度: " + position.coords.longitude + "<br /><img src=\"http://api.tianditu.gov.cn/staticimage?center=" + position.coords.longitude + "," + position.coords.latitude + "&width=400&height=300&zoom=16&markers=" + position.coords.longitude + "," + position.coords.latitude + "&markerStyles=-1,A,My%20Pos&tk=de83979a6a2f34703d9a16734dc51b50\"><br />[" + position.coords.latitude + "," + position.coords.longitude + "]";}
     </script>
   </div>

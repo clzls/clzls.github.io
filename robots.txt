@@ -4,3 +4,6 @@ Allow: /index.html
 Allow: /rail/tktAbout.html
 Allow: /rail/tktmach_latest.html
 Disallow: /
+
+User-Agent: W3C-checklink
+Disallow:

@@ -2,17 +2,19 @@
 <html lang="zh">
 
 <head>
-  <title>运转大数据 | 票机记录生成表</title>
+  <title>运转大数据 ｜ 票机记录生成表</title>
+  <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="stylesheet" href="./js/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="./js/bootstrap.min.css">-->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.13.1/css/fontawesome.min.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.13.1/css/solid.min.css">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js" defer></script>
   <script src="./js/tkt_type.min.js"></script>
   <style>
-    body {padding-top: 4em;}img.ptimg{width:300px;max-width:100%;height:auto}span.s0lt1,span.s1lt1{color:red!important}span.s1lt2,span.s2lt1,span.s2lt2,span.s3lt1,span.s4lt2{color:#ff0!important}span.s4lt1,span.s5lt1{color:#3f3!important}span.s0lt2,span.s3lt2,span.s5lt2{color:transparent!important}a.promo{word-break: break-all}
+    body {padding-top: 4em;}img.ptimg{width:300px;max-width:100%;height:auto}.s0lt1,.s1lt1{color:red!important}.s1lt2,.s2lt1,.s2lt2,.s3lt1,.s4lt2{color:#ff0!important}.s4lt1,.s5lt1{color:#3f3!important}.s0lt2,.s3lt2,.s5lt2{color:transparent!important}a.promo{word-break: break-all}
   </style>
 </head>
 
@@ -34,26 +36,25 @@
     </ul>
   </nav>
   <div class="container">
-    <p></p>
     项目网址：
     <a href="https://clzls.github.io/rail/tktmach_latest.html" class="promo">
       https://clzls.github.io/rail/tktmach_latest.html
     </a>
-    <p></p>
-    <div class="container">
-      <h4>票机评价标准：</h4>
-      <ol class="list-group">
-        <li class="list-group-item list-group-item-danger">0分/极差：刚出票即有瑕疵，半年左右即模糊不清，并有缺失、白条等。</li>
-        <li class="list-group-item list-group-item-warning">1分/很差：一年左右即模糊不清，缺失、白条等。</li>
-        <li class="list-group-item list-group-item-warning">2分/略差：略有模糊，略有不整齐；或两年后褪色明显的。</li>
-        <li class="list-group-item list-group-item-info">3分/尚可：半年左右仍清晰可认，无白条。两年后应仍可明显辨认。</li>
-        <li class="list-group-item list-group-item-success">4分/佳：一年仍清晰锐利，无白条、缺失。</li>
-        <li class="list-group-item list-group-item-success">5分/佳：两年仍清晰锐利，无白条、缺失等。（特殊等级）</li>
-        <li class="list-group-item">红色软质车票由于其抗褪色特性，可以视情况加分。（系统自动完成）</li>
-      </ol>
-    </div>
-    <p></p>
-    票号前十位包含以下信息：
+  </div>
+  <div class="container my-3">
+    <h2>票机评价标准</h2>
+    <ol class="list-group">
+      <li class="list-group-item list-group-item-danger">0分/极差：刚出票即有瑕疵，半年左右即模糊不清，并有缺失、白条等。</li>
+      <li class="list-group-item list-group-item-warning">1分/很差：一年左右即模糊不清，缺失、白条等。</li>
+      <li class="list-group-item list-group-item-warning">2分/略差：略有模糊，略有不整齐；或两年后褪色明显的。</li>
+      <li class="list-group-item list-group-item-info">3分/尚可：半年左右仍清晰可认，无白条。两年后应仍可明显辨认。</li>
+      <li class="list-group-item list-group-item-success">4分/佳：一年仍清晰锐利，无白条、缺失。</li>
+      <li class="list-group-item list-group-item-success">5分/佳：两年仍清晰锐利，无白条、缺失等。（特殊等级）</li>
+      <li class="list-group-item">红色软质车票由于其抗褪色特性，可以视情况加分。（系统自动完成）</li>
+    </ol>
+  </div>
+  <div class="container">
+    <p>票号前十位包含以下信息：</p>
     <p>5位车站号+2位售票方式号+3位售票窗口号</p>
     <p>售票机的窗口号可以从屏幕最底下获得。售票窗口的窗口号一般悬挂在窗口上，除非有特殊声明。</p>
   </div>
@@ -64,7 +65,7 @@
     <ol class="list-group">
       <li class="list-group-item list-group-item-info">首次填写前请阅读帮助页面，并与管理员取得联系，向管理员提交用户名注册申请。不被认可的用户名可能被要求修改或者以“热心网友”替代。</li>
       <li class="list-group-item">现在表格具有自动填写机器名的功能，填写时请按照先上后下的顺序。需要手动触发填写时，可以清空机器名一栏。</li>
-      <li class="list-group-item list-group-item-info">据悉，原则上记账日期晚于 2021-04-03 之车票不再显示“**售”，而直接显示“**”（车站名等）。自北京时间 2021-04-03 00:00 始至 2021-05-03 00:00 止，所有车票均需标注票号后注，如“福州售”“北京西”。</li>
+      <li class="list-group-item list-group-item-info">据悉，原则上 2022-04-20 以来打印之报销凭证不再在票号后提示售票站名。自北京时间 2022-04-20 00:00 始至 另有通知 止，所有车票均应标注票号后注（如有），如“福州售”“北京西”“JM”。留空则自动提示为无附注。</li>
     </ol>
     <form class="was-validated" action="javascript:sub2()" onchange="sub()">
       <div class="form-group">
@@ -198,7 +199,7 @@
           title="请输入车票票号后的提示。">
       </div>
       <div class="form-group">
-        <small class="text-muted">如有“武A”“上海自售”等并非车站名的特殊字样应该填写上框。据悉，原则上 2022-04-20 以来打印之报销凭证不再在票号后提示售票站名。 自北京时间 2022-04-20 00:00 始至 另有通知 止，所有车票均应标注票号后注（如有），如“福州售”“北京西”“JM”。留空则自动提示为无附注。</small>
+        <small class="text-muted">据悉，原则上 2022-04-20 以来打印之报销凭证不再在票号后提示售票站名。 自北京时间 2022-04-20 00:00 始至 另有通知 止，所有车票均应标注票号后注（如有），如“福州售”“北京西”“JM”。留空则自动提示为无附注。</small>
       </div>
       <div class="form-group">
         票机功能信息:
@@ -432,7 +433,7 @@
       </div>
       <button type="reset" class="btn btn-warning" onclick="preset_date()">清空</button>
       <button type="submit" class="btn btn-primary">生成代码</button>
-      <button type="button" class="btn btn-primary" onclick="sub2()">生成并复制</button>
+      <button type="button" class="btn btn-primary" onclick="sub2(this)">生成并复制</button>
       <div class="form-group">
         <label for="jso">请将以下代码 <strong>复制</strong> 给管理员：</label>
         <textarea class="form-control" rows="5" id="jso" readonly></textarea>
