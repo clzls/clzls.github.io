@@ -123,7 +123,7 @@
       </div>
       <div class="form-check-inline">
         <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" id="sel_guide_needed">终端号与机器贴纸不符
+          <input type="checkbox" class="form-check-input" id="sel_guide_needed">终端号与机器贴纸不符（如果有贴纸）
         </label>
       </div>
       <div class="form-group form-row">
@@ -205,7 +205,10 @@
           title="请输入车票广告。">
       </div>
       <div class="form-group">
-        <small class="text-muted">据悉，原则上 2022-04-20 以来打印之报销凭证不再在票号后提示售票站名。 自北京时间 2022-04-20 00:00 始至 另有通知 止，所有车票均应标注票号后注（如有），如“福州售”“北京西”“JM”。留空则自动提示为无附注。</small>
+        <small class="text-muted">
+          <p>自北京时间 2022-04-20 00:00 始至 另有通知 止，所有车票均应标注票号后注（如有），如“福州售”“北京西”“JM”。留空则自动提示为无附注。</p>
+          <p>上文所称广告，指除了默认信息以外的信息，包括但不限于公益广告、商业广告等。</p>
+        </small>
       </div>
       <div class="form-group">
         票机功能信息:
@@ -215,210 +218,7 @@
           <p>
             <a id="btn-clear-func" class="btn btn-warning btn-sm" href="#">清空功能表</a>
           </p>
-          <table class="table" id="tab-func">
-            <tr>
-              <th>取报销凭证</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_11">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_12">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>行程信息单</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_21">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_22">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>会员服务</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_31">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_32">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>购票</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_41">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_42">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>支持现金</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_51">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_52">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>支持银行卡</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_61">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_62">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>支持电子支付</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_71">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_72">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>支持护照读取</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_81">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_82">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>优惠资质绑定</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_91">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_92">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>信息查询</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_101">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_102">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>取电话订票</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_111">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_112">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>退票</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_121">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_122">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>已取报销凭证的退票</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_131">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_132">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>便捷乘车换票</th>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_141">确定
-                </label>
-              </td>
-              <td>
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="sel_142">具有该功能
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>计次/定期票</th>
-              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_151">确定</label></td>
-              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_152">具有该功能</label></td>
-            </tr>
-            <tr>
-              <th>改签</th>
-              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_161">确定</label></td>
-              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_162">具有该功能</label></td>
-            </tr>
-            <tr>
-              <th>联系方式预留/变更</th>
-              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_171">确定</label></td>
-              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_172">具有该功能</label></td>
-            </tr>
-            <tr>
-              <th>英语服务</th>
-              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_181">确定</label></td>
-              <td><label class="form-check-label"><input type="checkbox" class="form-check-input" id="sel_182">具有该功能</label></td>
-            </tr>
-          </table>
+          <table class="table" id="tab-func"></table>
         </details>
       </div>
       <div class="input-group mb-3">
