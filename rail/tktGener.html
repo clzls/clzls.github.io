@@ -63,10 +63,10 @@
     <h2>票机数据收集表</h2>
     <p>注意：</p>
     <ol class="list-group">
-      <li class="list-group-item list-group-item-info">首次填写前请阅读帮助页面，并与管理员取得联系，向管理员提交用户名注册申请。不被认可的用户名可能被要求修改或者以“热心网友”替代。</li>
+      <li class="list-group-item list-group-item-info">首次填写前请阅读帮助页面，并与管理员取得联系，向管理员提交用户名注册申请（零星数据也可以直接以“网友”身份投递）。不被认可的用户名可能被要求修改或者以“热心网友”替代。本页面仅为内部辅助工具，可能无法涵盖所有情况，如果不确定如何填写，可以在通信中详细描述。</li>
       <li class="list-group-item">现在表格具有自动填写机器名的功能，填写时请按照先上后下的顺序。需要手动触发填写时，可以清空机器名一栏。</li>
       <li class="list-group-item list-group-item-info">据悉，原则上 2022-04-20 以来打印之报销凭证不再在票号后提示售票站名。自北京时间 2022-04-20 00:00 始至 另有通知 止，所有车票均应标注票号后注（如有），如“福州售”“北京西”“JM”。留空则自动提示为无附注。</li>
-      <li class="list-group-item">关于无法打印报销凭证的机器。如果可以打印信息单，则应采用信息单下方“出单地点”或“出单”处显示的十位数字作为“票号前十位”，并在备注中注明。</li>
+      <li class="list-group-item">关于无法打印报销凭证的机器。如果可以打印信息单，则应采用信息单下方“出单地点”或“出单”处显示的十位数字作为“票号前十位”，并在备注中注明。由于技术原因，没有”票号前十位“的机器暂时无法记录。</li>
     </ol>
     <form class="was-validated" action="javascript:sub2()" onchange="sub()">
       <div class="form-group">
@@ -230,6 +230,7 @@
           <option value="1">铁科院 CARS</option>
           <option value="2">通号 CRSC</option>
           <option value="11">易程 Easyway</option>
+          <option value="31">神州数码</option>
         </select>
         <input type="text" class="form-control" id="machbrandTxt" placeholder="例如：易程" size="16" maxlength="16" title="请输入机器的生产厂商。">
       </div>
