@@ -6,12 +6,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="keyword" content="运转大数据, 運転マスデータ, Yùnzhuǎn Dà-shùjù, Big Data for Train Travel in China" />
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.13.1/css/fontawesome.min.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.13.1/css/solid.min.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.13.1/css/brands.min.css">
-  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/bootstrap/5.2.3/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/bootstrap/5.2.3/js/bootstrap.bundle.min.js" defer></script>
   <style>
     body{padding-top:4em;}img.ptimg{width:300px;max-width:100%;height:auto}p.score span.s0lt1,p.score span.s1lt1{color:red!important}p.score span.s1lt2,p.score span.s2lt1,p.score span.s2lt2,p.score span.s3lt1,p.score span.s4lt2{color:#ff0!important}p.score span.s4lt1,p.score span.s5lt1{color:#3f3!important}p.score span.s0lt2,p.score span.s3lt2,p.score span.s5lt2{color:transparent!important}
   </style>
@@ -19,20 +15,27 @@
 
 <body>
   <a id="top"></a>
-  <nav class="navbar navbar-expand-sm fixed-top navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="./tktmach_latest.html">運転マスデータ</a>
-    <span class="navbar-text"> By Kina(木菜)</span>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="./tktmach_latest.html">返る</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./tktGener.html">収集表</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./tktAbout.html">使い方</a>
-      </li>
-    </ul>
+  <nav class="navbar navbar-expand-sm fixed-top" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./tktmach_latest.html">運転マスデータ</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTog" aria-controls="navbarTog" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTog">
+        <span class="navbar-text"> By Kina(木菜)</span>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./tktmach_latest.html">返る</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./tktGener.html">収集表</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./tktAbout.html">使い方</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
   <div class="container">
     <h1>
@@ -58,6 +61,16 @@
     <p>これは完全な変更履歴です。内容の増加・版式の調整等は記録されないかもしれないので、ご注意ください。</p>
       <ul class="list-group">
         <li class="list-group-item border border-primary">
+          2023-05-13 (v3.8.0-alpha)
+          <ul>
+            <li>新しい駅：<var>漣源</var>、<var>陽朔</var>。</li>
+            <li>ファイル版本番号は <code>2023c</code> にする。</li>
+            <li>収集表を更新。</li>
+            <li>新しいページ構体へ遷移。Bootstrap 5.2.3 を採用。</li>
+            <li>記録した駅組 30 個、駅 695 個、機器 1977 個。</li>
+          </ul>
+        </li>
+        <li class="list-group-item">
           2023-04-29 (v3.7.10)
           <ul>
             <li>新しい駅：<var>黑山寺</var>。</li>

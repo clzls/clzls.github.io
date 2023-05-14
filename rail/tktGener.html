@@ -6,12 +6,15 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!--<link rel="stylesheet" href="./js/bootstrap.min.css">-->
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <!--Polyfills BEGIN-->
+  <script nomodule src="https://cdn.staticfile.org/es6-shim/0.35.6/es6-shim.min.js"></script>
+  <script nomodule src="https://cdn.staticfile.org/promise-polyfill/8.2.3/polyfill.min.js"></script>
+  <!--Polyfills END-->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/bootstrap/5.2.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.13.1/css/fontawesome.min.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.13.1/css/solid.min.css">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://cdn.staticfile.org/bootstrap/5.2.3/js/bootstrap.bundle.min.js" defer></script>
   <script src="./js/tkt_type.min.js"></script>
   <style>
     body {padding-top: 4em;}img.ptimg{width:300px;max-width:100%;height:auto}.s0lt1,.s1lt1{color:red!important}.s1lt2,.s2lt1,.s2lt2,.s3lt1,.s4lt2{color:#ff0!important}.s4lt1,.s5lt1{color:#3f3!important}.s0lt2,.s3lt2,.s5lt2{color:transparent!important}a.promo{word-break: break-all}
@@ -20,20 +23,27 @@
 
 <body>
   <a id="top"></a>
-  <nav class="navbar navbar-expand-sm fixed-top navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="./tktmach_latest.html">运转大数据</a>
-    <span class="navbar-text"> By Kina(木菜)</span>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="./tktmach_latest.html">返回</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#">生成器</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./tktAbout.html">关于</a>
-      </li>
-    </ul>
+  <nav class="navbar navbar-expand-sm fixed-top" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-2" href="./tktmach_latest.html">运转大数据</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTog" aria-controls="navbarTog" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTog">
+        <span class="navbar-text"> By Kina(木菜)</span>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./tktmach_latest.html">返回</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">生成器</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./tktAbout.html">关于</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
   <div class="container">
     项目网址：
@@ -59,6 +69,7 @@
     <p>售票机的窗口号可以从屏幕最底下获得。售票窗口的窗口号一般悬挂在窗口上，除非有特殊声明。</p>
   </div>
   <script src="./js/code_gen.min.js"></script>
+  <script src="./js/codeGen2.min.js"></script>
   <div class="container">
     <h2>票机数据收集表</h2>
     <p>注意：</p>
@@ -68,164 +79,178 @@
       <li class="list-group-item list-group-item-info">据悉，原则上 2022-04-20 以来打印之报销凭证不再在票号后提示售票站名。自北京时间 2022-04-20 00:00 始至 另有通知 止，所有车票均应标注票号后注（如有），如“福州售”“北京西”“JM”。留空则自动提示为无附注。</li>
       <li class="list-group-item">关于无法打印报销凭证的机器。如果可以打印信息单，则应采用信息单下方“出单地点”或“出单”处显示的十位数字作为“票号前十位”，并在备注中注明。由于技术原因，没有”票号前十位“的机器暂时无法记录。</li>
     </ol>
-    <form class="was-validated" action="javascript:sub2()" onchange="sub()">
-      <div class="form-group">
-        <label for="userid">用户名：</label>
-        <input type="text" class="form-control" id="userid" placeholder="热心网友" required size="12" maxlength="12"
-          title="请输入合法的用户名。">
+    <form class="was-validated">
+      <div class="my-3 g-2">
+        <label class="form-label" for="userid">用户名：</label>
+        <input type="text" class="form-control" id="userid" placeholder="热心网友" required size="12" maxlength="12" autocomplete="username">
+        <div class="invalid-feedback">
+          请输入合法的用户名。
+        </div>
       </div>
-      <div class="form-group">
-        <label for="tktno">票号前十位:</label>
+      <div class="mb-3 g-2">
+        <label class="form-label" for="tktno">票号前十位：</label>
         <input type="text" class="form-control" id="tktno" placeholder="1001000033" pattern="[1-9]\d{9}" required
           size="10" maxlength="10" title="请输入十位数字。">
-      </div>
-      <div class="form-group">
-        <label for="tktdesc">去除前十位后的完整票号:</label>
-        <input type="text" class="form-control" id="tktfullnum" placeholder="例如：0601A114514" size="21" pattern="[0-9,\*]{4}[A-Z,\*][0-9,\*]{6}" maxlength="21" title="请输入去除前十位后的完整票号。">
-        <small class="text-muted">去除前十位后的完整票号，缺失位用<code>*</code>号补齐。本栏数据仅用于内部统计和检查使用，不会对外公开。</small>
-      </div>
-      <div class="form-row">
-        <div class="col">
-          <label for="tktdate">取票日期:<span class="text-muted">取出车票的日期，用于确定票机状态。</span></label>
-          <input type="date" class="form-control" id="tktdate" required title="请输入车票的取票日期。">
-        </div>
-        <div class="col">
-          <label for="recdate">记录日期:<span class="text-muted">拍摄照片或查看车票的日期，用于确定车票状态。</span></label>
-          <input type="date" class="form-control" id="recdate" required title="请输入照片拍摄或查看车票的日期，用于确定车票状态。">
+        <div class="invalid-feedback">
+          请输入十位数字。
         </div>
       </div>
-      <div class="form-group">
-        <label for="staname1">车站地点描述:</label>
-        <div class="form-row">
-          <div class="col-5">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" required size="14" id="staname1" placeholder="北京南">
-              <div class="input-group-append">
-                <span class="input-group-text">站</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-7">
-            <input type="text" class="form-control" required size="14" id="staname2" placeholder="候车室西南侧银通卡窗口">
-          </div>
-        </div>
-
+      <div class="mb-3 g-2">
+        <label class="form-label" for="tktdesc">去除前十位后的完整票号：</label>
+        <input type="text" class="form-control" id="tktfullnum" placeholder="例如：0601A114514" size="21" pattern="[0-9,\*]{4}[A-Z,\*][0-9,\*]{6}" maxlength="21" aria-describedby="tktdesc-desc" title="请输入去除前十位后的完整票号。">
+        <div class="form-text" id="tktdesc-desc">去除前十位后的完整票号，缺失位用 <code>*</code> 号补齐。本栏数据仅用于内部统计和检查使用，不会对外公开。</div>
       </div>
-      <div class="form-check-inline">
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" id="sel_rem">票机被移除
-        </label>
-      </div>
-      <div class="form-check-inline">
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" id="sel_red2blue">红票改蓝票
-        </label>
-      </div>
-      <div class="form-check-inline">
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" id="sel_guide_needed">终端号与机器贴纸不符（如果有贴纸）
-        </label>
-      </div>
-      <div class="form-group form-row">
+      <div class="row row-cols-1 row-cols-sm-2 mb-3 g-2">
         <div class="col">
-          <label for="sel1">是否红票</label>
-          <select class="form-control" id="sel1">
+          <label class="form-label" for="tktdate">取票日期：<span class="text-muted">取出车票的日期，用于确定票机状态。</span></label>
+          <input type="date" class="form-control" id="tktdate" required>
+        </div>
+        <div class="col">
+          <label class="form-label" for="recdate">记录日期：<span class="text-muted">拍摄照片或查看车票的日期，用于确定车票状态。</span></label>
+          <input type="date" class="form-control" id="recdate" required>
+        </div>
+      </div>
+      <div class="my-3 g-2">
+        <label class="form-label" for="staname1">车站地点描述:</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" required size="14" id="staname1" placeholder="北京南">
+          <span class="input-group-text">站</span>
+          <input type="text" class="form-control" required size="14" id="staname2" placeholder="候车室西南侧银通卡窗口">
+        </div>
+      </div>
+      <div class="row row-cols-auto m-1 g-2">
+        <div class="col form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="sel_rem">
+          <label class="form-check-label" for="sel_rem">票机被移除</label>
+        </div>
+        <div class="col form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="sel_red2blue">
+          <label class="form-check-label" for="sel_red2blue">红票改蓝票
+          </label>
+        </div>
+        <div class="col form-check form-check-inline">
+            <input type="checkbox" class="form-check-input" id="sel_guide_needed">
+          <label class="form-check-label" for="sel_guide_needed">终端号与机器贴纸 / LED（如果有）不符
+          </label>
+        </div>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 mb-3 g-2">
+        <div class="col">
+          <label class="form-label" for="sel1">是否红票</label>
+          <select class="form-select" id="sel1">
             <option value="1">红票</option>
             <option value="0" selected>蓝票</option>
             <option value="2">其他</option>
           </select>
         </div>
         <div class="col">
-          <label for="sel2">时效性</label>
-          <select class="form-control" id="sel2">
-            <option value="2" selected>新鲜记录，仍然有效</option>
+          <label class="form-label" for="sel2">时效性</label>
+          <select class="form-select" id="sel2">
+            <option value="2" selected>半年内新鲜记录，仍然有效</option>
             <option value="1">超过半年，仍然有效或状态未知</option>
             <option value="0">已经无效或超过两年</option>
           </select>
         </div>
       </div>
-      <div class="form-group">
-        <label for="sel3">票质:</label>
-        <input type="range" class="form-control-range" id="sel3" min="0" max="4" value="3">
+      <div class="mb-3 g-2">
+        <label class="form-label" for="sel3">票质：</label>
+        <input type="range" class="form-range" id="sel3" min="0" max="4" value="3">
         <span id="sel3resl"></span>
       </div>
-      <div class="form-group">
-        <label for="sel4">背面票纸:（检查背面“乘车须知”的字体）</label>
-        <select class="form-control" id="sel4">
+      <div class="mb-3 g-2">
+        <label class="form-label" for="sel4">背面票纸:（检查背面“乘车须知”的字体）</label>
+        <select class="form-select" id="sel4">
           <optgroup label="蓝票" data-red="0">
-            <option value="1" data-red="0">蓝票（黑体空两格）票纸</option>
-            <option value="2" data-red="0">蓝票（宋体左对齐）票纸</option>
-            <option value="3" data-red="0">蓝票（黑体左对齐）票纸</option>
-            <option value="10" data-red="0">蓝票（黑体其他）票纸</option>
-            <option value="102" data-red="0">蓝票（宋体居中）票纸</option>
-            <option value="103" data-red="0">蓝票（宋体左对齐，旧版1）票纸</option>
-            <option value="121" data-red="0">蓝票（宋体左对齐，冬奥主题）票纸</option>
-            <option value="200" data-red="0">蓝票（宋体其他）票纸</option>
-            <option value="19" data-red="0">不明蓝票票纸</option>
+            <option value="1">蓝票（黑体空两格）票纸</option>
+            <option value="2">蓝票（宋体左对齐）票纸</option>
+            <option value="3">蓝票（黑体左对齐）票纸</option>
+            <option value="10">蓝票（黑体其他）票纸</option>
+            <option value="102">蓝票（宋体居中）票纸</option>
+            <option value="103">蓝票（宋体左对齐，旧版1）票纸</option>
+            <option value="121">蓝票（宋体左对齐，冬奥主题）票纸</option>
+            <option value="200">蓝票（宋体其他）票纸</option>
+            <option value="19">不明蓝票票纸</option>
           </optgroup>
           <optgroup label="红票" data-red="1">
-            <option value="21" data-red="1">红票宋体空两格票纸</option>
-            <option value="22" data-red="1">第1类红票黑体左对齐票纸</option>
-            <option value="23" data-red="1">第2类红票黑体左对齐票纸</option>
-            <option value="24" data-red="1">第3类红票黑体左对齐票纸</option>
-            <option value="25" data-red="1">第4类红票长黑体左对齐票纸</option>
-            <option value="26" data-red="1">第5类红票长黑体左对齐票纸</option>
-            <option value="31" data-red="1">第1类红票黑体空两格票纸</option>
-            <option value="41" data-red="1">第1类红票宋体居中票纸</option>
-            <option value="45" data-red="1">红票（宋体左对齐）票纸</option>
-            <option value="59" data-red="1">不明红票票纸</option>
+            <option value="21">红票宋体空两格票纸</option>
+            <option value="22">第1类红票黑体左对齐票纸</option>
+            <option value="23">第2类红票黑体左对齐票纸</option>
+            <option value="24">第3类红票黑体左对齐票纸</option>
+            <option value="25">第4类红票长黑体左对齐票纸</option>
+            <option value="26">第5类红票长黑体左对齐票纸</option>
+            <option value="31">第1类红票黑体空两格票纸</option>
+            <option value="41">第1类红票宋体居中票纸</option>
+            <option value="45">红票（宋体左对齐）票纸</option>
+            <option value="59">不明红票票纸</option>
           </optgroup>
           <optgroup label="其他" data-red="2">
-            <option value="255" data-red="2" selected>未知票纸</option>
+            <option value="255" selected>未知票纸</option>
           </optgroup>
         </select>
       </div>
-      <div class="form-group">
-        <p class="mb-1">票纸：<span id="paper_example"></span></p>
+      <div class="mb-3 g-2">
+        <p>票纸：<span id="paper_example">票纸信息暂缺</span></p>
       </div>
-      <div class="form-group" id="scores"></div>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <input type="checkbox" aria-label="是否显示车票票号后的提示，复选框" id="descSel_pmbz">
-          </div>
-          <span class="input-group-text">票号后注有：</span>
+      <div class="mb-3 g-2" id="scores"></div>
+      <div class="input-group">
+        <div class="input-group-text">
+          <input type="checkbox" aria-label="是否显示车票票号后的提示，复选框" id="descSel_pmbz">
         </div>
-        <input type="text" class="form-control" id="descSelTxt_pmbz" aria-label="请输入车票票号后的提示" placeholder="例如：JM"
+        <span class="input-group-text">票号后注有：</span>
+        <input type="text" class="form-control" id="descSelTxt_pmbz"
+          aria-describedby="descSelTxt_pmbz-desc"
+          placeholder="例如：JM"
           title="请输入车票票号后的提示。">
       </div>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <input type="checkbox" aria-label="车票是否含有广告，复选框" id="selAd">
-          </div>
-          <span class="input-group-text">有票面广告，内容为：</span>
+      <p class="mb-3 form-text" id="descSelTxt_pmbz-desc">自北京时间 2022-04-20 00:00 始至 另有通知 止，所有车票均应标注票号后注（如有），如“福州售”“北京西”“JM”。留空则自动提示为无附注。</p>
+      <div class="input-group">
+        <div class="input-group-text">
+          <input type="checkbox" aria-label="车票是否含有广告，复选框" id="selAd">
         </div>
-        <input type="text" class="form-control" id="selAdTxt" aria-label="请输入车票广告" placeholder="例如：广告位招商"
+        <span class="input-group-text">有票面广告，内容为：</span>
+        <input type="text" class="form-control" id="selAdTxt"
+          aria-describedby="selAdTxt-desc"
+          placeholder="例如：广告位招商"
           title="请输入车票广告。">
       </div>
-      <div class="form-group">
-        <small class="text-muted">
-          <p>自北京时间 2022-04-20 00:00 始至 另有通知 止，所有车票均应标注票号后注（如有），如“福州售”“北京西”“JM”。留空则自动提示为无附注。</p>
-          <p>上文所称广告，指除了默认信息以外的信息，包括但不限于公益广告、商业广告等。</p>
-        </small>
+      <p class="mb-3 form-text" id="selAdTxt-desc">上文所称广告，指除了默认信息以外的信息，包括但不限于公益广告、商业广告等。商业广告可能会被模糊处理以防止侵权。</p>
+      <div class="row row-cols-1 row-cols-lg-2 mb-3 g-2">
+        <div class="col">
+          <div class="input-group">
+            <span class="input-group-text">如在站外，地址：</span>
+            <input type="text" class="form-control" id="selAddr"
+              aria-describedby="selAddr-desc"
+              placeholder="例如：河南省洛阳市涧西区牡丹路1号"
+              title="请输入机器地址。">
+          </div>
+          <p class="mb-3 form-text" id="selAddr-desc">如果该机器为站外自助机或代售点，请按照邮政标准填写此项。</p>
+        </div>
+        <div class="col">
+          <div class="input-group">
+            <span id="selOpenHour-lbl" class="input-group-text">机器开放时间：</span>
+            <input type="text" class="form-control" id="selOpenHour"
+              aria-describedby="selOpenHour-desc"
+              placeholder="例如：09:00-19:00" title="请输入机器开放时间。">
+          </div>
+          <p class="mb-3 form-text" id="selOpenHour-desc">如果该机器标注了开放时间，请按照标准填写此项。</p>
+        </div>
       </div>
-      <div class="form-group">
-        票机功能信息:
-        <span class="text-danger">本栏目尚未开放，如不确定请先不要填写</span>
+      <div class="mb-3 g-2">
+        票机功能信息：
+        <span class="text-danger">本栏目尚未开放，如不确定请先不要填写。</span>
         <details>
           <summary>票机功能信息表</summary>
           <p>
-            <a id="btn-clear-func" class="btn btn-warning btn-sm" href="#">清空功能表</a>
+            <button type="button" id="btn-clear-func" class="btn btn-warning btn-sm">清空功能表</button>
           </p>
-          <table class="table" id="tab-func"></table>
+          <table class="table table-hover" id="tab-func">
+            <tbody></tbody>
+          </table>
         </details>
       </div>
       <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="machbrandLbl">机器厂商</span>
-        </div>
-        <select class="form-control col" id="machbrandSel" aria-labelledby="machbrandLbl">
+        <span class="input-group-text" id="machbrandLbl">机器厂商</span>
+        <select class="form-select" id="machbrandSel" aria-labelledby="machbrandLbl">
           <option value="0">未指定 / 其他</option>
           <option value="1">铁科院 CARS</option>
           <option value="2">通号 CRSC</option>
@@ -234,15 +259,17 @@
         </select>
         <input type="text" class="form-control" id="machbrandTxt" placeholder="例如：易程" size="16" maxlength="16" title="请输入机器的生产厂商。">
       </div>
-      <div class="form-group">
-        <label for="tktdesc">其他描述:</label>
+      <div class="mb-3 g-2">
+        <label class="form-label" for="tktdesc">其他描述:</label>
         <input type="text" class="form-control" id="tktdesc" placeholder="票面广告，背面字体等" size="100" maxlength="100" title="请输入对车票的其他描述。">
       </div>
-      <button type="reset" class="btn btn-warning" onclick="preset_date()">清空</button>
-      <button type="submit" class="btn btn-primary">生成代码</button>
-      <button type="button" class="btn btn-primary" onclick="sub2(this)">生成并复制</button>
-      <div class="form-group">
-        <label for="jso">请将以下代码 <strong>复制</strong> 给管理员：</label>
+      <div class="mb-3 btn-group" role="group" aria-label="表单控制按钮">
+        <button type="reset" class="btn btn-outline-warning">清空</button>
+        <button type="submit" class="btn btn-outline-primary">生成代码</button>
+        <button type="button" class="btn btn-outline-primary" id="button-copy">生成并复制</button>
+      </div>
+      <div class="mb-3 g-2">
+        <label class="form-label" for="jso">请将以下代码 <strong>复制</strong> 给管理员：</label>
         <textarea class="form-control" rows="5" id="jso" readonly></textarea>
       </div>
     </form>

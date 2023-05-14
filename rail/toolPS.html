@@ -6,12 +6,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="keyword" content="运转大数据" />
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/bootstrap/5.2.3/css/bootstrap.min.css">
 </head>
 <body>
   <div class="container">
     <p id="demo">点击这个按钮，获得您的坐标：</p>
-    <button class="btn btn-primary" onclick="getLocation()">试一下</button>
+    <button type="button" class="btn btn-primary" onclick="getLocation()">试一下</button>
     <script>
     var x=document.getElementById("demo");
     function getLocation(){navigator.geolocation?navigator.geolocation.getCurrentPosition(showPosition, e=>{x.innerHTML = err.message},{enableHighAccuracy:true}):x.innerHTML="浏览器不支持地理位置"}
