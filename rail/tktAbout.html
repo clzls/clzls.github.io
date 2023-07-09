@@ -85,16 +85,16 @@
     <h2>趋势榜 <small class="text-muted" lang="en">Trend List</small></h2>
     <table class="table">
       <tr><th>排名</th><th>车站</th><th>机器数</th><th>记录数</th></tr>
-      <tr><td>1</td><td>郑州东</td><td>54</td><td>73</td></tr>
+      <tr><td>1</td><td>郑州东</td><td>55</td><td>74</td></tr>
       <tr><td>2</td><td>长春</td><td>54</td><td>69</td></tr>
       <tr><td>3</td><td>南京南</td><td>53</td><td>68</td></tr>
-      <tr><td>4</td><td>郑州</td><td>50</td><td>72</td></tr>
+      <tr><td>4</td><td>郑州</td><td>51</td><td>73</td></tr>
       <tr><td>5</td><td>北京南</td><td>47</td><td>56</td></tr>
       <tr><td>6</td><td>杭州东</td><td>36</td><td>42</td></tr>
       <tr><td>7</td><td>北京西</td><td>32</td><td>41</td></tr>
       <tr><td>8</td><td>兰州</td><td>30</td><td>41</td></tr>
       <tr><td>9</td><td>南京</td><td>28</td><td>35</td></tr>
-      <tr><td>10</td><td>兰州西</td><td>27</td><td>35</td></tr>
+      <tr><td>10</td><td>盐城</td><td>28</td><td>34</td></tr>
     </table>
   </div>
   <div class="container my-3">
@@ -104,10 +104,10 @@
     </h2>
     <ul class="list-group">
       <li class="list-group-item list-group-item-danger">0分/极差：刚出票即有瑕疵，半年左右即模糊不清，并有缺失、白条等。</li>
-      <li class="list-group-item list-group-item-warning">1分/很差：一年左右即模糊不清，缺失、白条等。</li>
-      <li class="list-group-item list-group-item-warning">2分/略差：略有模糊，略有不整齐；或两年后褪色明显的。</li>
-      <li class="list-group-item list-group-item-info">3分/尚可：半年左右仍清晰可认，无白条。两年后应仍可明显辨认。</li>
-      <li class="list-group-item list-group-item-success">4分/佳：一年仍清晰锐利，无白条、缺失。</li>
+      <li class="list-group-item list-group-item-warning">1分/很差：一年左右即模糊不清，缺失、白条等多种缺陷。</li>
+      <li class="list-group-item list-group-item-warning">2分/略差：略有模糊、白条、缺失，略有不整齐；或两年后褪色明显的。</li>
+      <li class="list-group-item list-group-item-info">3分/尚可：半年左右仍清晰可认，无白条。两年后应仍可明显辨认。（新打印车票 清晰锐利，无白条、缺失，但采用易褪色类票纸的；或 有极少量难以分辨、不影响整体质量的缺失的 可参考此等级）</li>
+      <li class="list-group-item list-group-item-success">4分/佳：一年仍清晰锐利，无白条、缺失。（新打印车票 清晰锐利，无白条、缺失且未采用易褪色类票纸的 可参考此等级）</li>
       <li class="list-group-item list-group-item-success">5分/佳：两年仍清晰锐利，无白条、缺失等。（特殊等级）</li>
       <li class="list-group-item">红色软质车票由于其抗褪色特性，可以视情况加分。（系统自动完成）</li>
     </ul>
@@ -143,21 +143,20 @@
     <p class="text-muted" lang="ja">詳細な変更履歴は この<a class="link" href="helpUpdatehist.ja.html">ページ</a>へ。</p>
     <ul class="list-group">
       <li class="list-group-item border border-primary">
+        2023-07-08 (v3.8.1)
+        <ul>
+          <li>新增票纸评分统计，自动生成，可供参考。</li>
+          <li>调整了部分关于票纸、标签、状态变化等的表述。</li>
+          <li>新增车站：<var>城固</var>、<var>恩平</var>、<var>个旧</var>、<var>鹤壁东</var>、<var>红岛</var>、<var>红河</var>、<var>鄠邑</var>、<var>淮安</var>、<var>绩溪县</var>、<var>剑门关</var>、<var>开平南</var>、<var>乐平市</var>、<var>墨江</var>、<var>宁洱</var>、<var>攀枝花南</var>、<var>邳州东</var>、<var>屏边</var>、<var>祁门</var>、<var>青铜峡</var>、<var>渠县</var>、<var>歙县</var>、<var>四合永</var>、<var>台前</var>、<var>西安西</var>、<var>西昌西</var>、<var>萧县北</var>、<var>宣城</var>、<var>阳平关</var>、<var>榆次</var>、<var>元江</var>、<var>治江</var>。</li>
+          <li>车站组总数达 30 个，车站总数达 740 个，机器数量达 2111 台。</li>
+        </ul>
+      </li>
+      <li class="list-group-item">
         2023-06-25 (v3.8.0)
         <ul>
           <li>注意：v3.8.0-beta.3 版本以后、v4.0.0 发布以前，将改为每年更新文件名，放弃与前代的兼容性。这一改动预计不会影响日常使用。如需查阅历史版本请查看 git 库历史记录。</li>
           <li>新增车站：<var>临潼</var>、<var>牟平</var>、<var>平泉北</var>、<var>兴隆县西</var>。</li>
           <li>车站组总数达 30 个，车站总数达 709 个，机器数量达 2037 台。</li>
-        </ul>
-      </li>
-      <li class="list-group-item">
-        …… 2023-05-13 (v3.8.0-alpha)
-        <ul>
-          <li>新增车站：<var>涟源</var>、<var>阳朔</var>。</li>
-          <li>更改文件名版本号为<code>2023c</code>。</li>
-          <li>更新了生成器。</li>
-          <li>页面向新版本迁移。辅助页面更换为 Bootstrap 5.2.3 外观。</li>
-          <li>车站组总数达 30 个，车站总数达 695 个，机器数量达 1977 台。</li>
         </ul>
       </li>
       <li class="list-group-item">
