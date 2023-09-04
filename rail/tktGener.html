@@ -82,9 +82,12 @@
     <form class="was-validated">
       <div class="my-3 g-2">
         <label class="form-label" for="userid">用户名：</label>
-        <input type="text" class="form-control" id="userid" placeholder="热心网友" required size="12" maxlength="12" autocomplete="username">
-        <div class="invalid-feedback">
-          请输入合法的用户名。
+        <div class="input-group has-validation">
+          <input type="text" class="form-control" id="userid" placeholder="热心网友" required size="12" maxlength="12" autocomplete="username">
+          <button class="btn btn-outline-secondary" type="button" id="btn-lock-userid" data-bs-toggle="button">记住</button>
+          <div class="invalid-feedback">
+            请输入合法的用户名。
+          </div>
         </div>
       </div>
       <div class="mb-3 g-2">
@@ -267,7 +270,7 @@
       <div class="mb-3 btn-group" role="group" aria-label="表单控制按钮">
         <button type="reset" class="btn btn-outline-warning">清空</button>
         <button type="submit" class="btn btn-outline-primary">生成代码</button>
-        <button type="button" class="btn btn-outline-primary" id="button-copy">生成并复制</button>
+        <button type="button" class="btn btn-outline-primary" id="btn-copy">生成并复制</button>
       </div>
       <div class="mb-3 g-2">
         <label class="form-label" for="jso">请将以下代码 <strong>复制</strong> 给管理员：</label>
