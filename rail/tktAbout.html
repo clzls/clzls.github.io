@@ -54,7 +54,7 @@
   </nav>
   <div class="container head">
     <p>推荐使用Mdict词典版本，查询更方便。Mdict官方网站：<a href="https://www.mdict.cn/wp/?lang=zh" target="_blank">www.mdict.cn/wp</a></p>
-    <p><a href="./tktMach2023c2.mdx" download><i class="fas fa-download"></i>下载词典 - 2023 年 8 月 22 日版本</a></p>
+    <p><a href="./tktMach2023c2.mdx" download><i class="fas fa-download"></i>下载词典 - 2023 年 10 月 5 日版本</a></p>
   </div>
   <div class="container">
     项目网址：
@@ -118,18 +118,14 @@
     <h3>红票 <small class="text-muted" lang="en">Red papers</small></h3>
   </article>
   <script>
-    var tktpaperdesc = document.getElementById("tktpaperdesc");
-    var desc = tktpaperdesc.getElementsByTagName('h3');
+    var tktpaperdesc = document.getElementById("tktpaperdesc"),desc = tktpaperdesc.getElementsByTagName('h3'),forEach=function(t,e){for(i=0;i<t.length;i++)e(t[i])};
     function doE(e, t) {
       var p = document.createElement("p");
       p.innerHTML = "代码"+e+"："+getTktType(e);
       tktpaperdesc.insertBefore(p, t);
     }
-    forEach=function(t,e){for(i=0;i<t.length;i++)e(t[i])};
-    a1=function(e){doE(e, desc[1])};
-    a2=function(e){doE(e, null)};
-    forEach(getTktRangeBlue(),a1);
-    forEach(getTktRangeRed(),a2);
+    forEach(getTktRangeBlue(),function(e){doE(e, desc[1])});
+    forEach(getTktRangeRed(),function(e){doE(e, null)});
   </script>
   <article class="container py-2">
     <h2>
@@ -143,12 +139,11 @@
     <p class="text-muted" lang="ja">詳細な変更履歴は この<a class="link" href="helpUpdatehist.ja.html">ページ</a>へ。</p>
     <ul class="list-group">
       <li class="list-group-item border border-primary">
-        2023-09-19 (v3.8.6)
+        2023-10-05 (v3.8.7)
         <ul>
-          <li>新增单条目多票提示。</li>
-          <li>调整了部分翻译。</li>
-          <li>新增车站：<var>简阳南</var>、<var>新都东</var>、<var>鹰手营子</var>。</li>
-          <li>车站组总数达 30 个，车站总数达 754 个，机器数量达 2189 台。</li>
+          <li>新增车站：<var>安德</var>、<var>安靖</var>、<var>名山</var>、<var>温江</var>、<var>迎宾路</var>。</li>
+          <li>新增车站联合体：<var>甬广高速线(线路)</var>。</li>
+          <li>车站组总数达 31 个，车站总数达 759 个，机器数量达 2204 台。</li>
         </ul>
       </li>
       <li class="list-group-item">
