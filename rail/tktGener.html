@@ -139,11 +139,11 @@
       </div>
       <div class="row row-cols-1 row-cols-sm-2 mb-3 g-2">
         <div class="col">
-          <label class="form-label" for="sel1">是否红票</label>
+          <label class="form-label" for="sel1">票纸类型（红票/蓝票/信息单）</label>
           <select class="form-select" id="sel1">
             <option value="1">红票</option>
             <option value="0" selected>蓝票</option>
-            <option value="2">其他</option>
+            <option value="2">其他（信息单、未知）</option>
           </select>
         </div>
         <div class="col">
@@ -172,7 +172,7 @@
             <option value="103">蓝票（宋体左对齐，旧版1）票纸</option>
             <option value="121">蓝票（宋体左对齐，冬奥主题）票纸</option>
             <option value="200">蓝票（宋体其他）票纸</option>
-            <option value="19">不明蓝票票纸</option>
+            <option value="19">其他蓝票票纸</option>
           </optgroup>
           <optgroup label="红票" data-red="1">
             <option value="21">红票宋体空两格票纸</option>
@@ -183,11 +183,13 @@
             <option value="26">第5类红票长黑体左对齐票纸</option>
             <option value="31">第1类红票黑体空两格票纸</option>
             <option value="41">第1类红票宋体居中票纸</option>
-            <option value="45">红票（宋体左对齐）票纸</option>
-            <option value="59">不明红票票纸</option>
+            <option value="45">红票宋体左对齐票纸（旧版）</option>
+            <option value="49">红票宋体左对齐票纸（人民日报广告）</option>
+            <option value="59">其他红票票纸</option>
           </optgroup>
-          <optgroup label="其他" data-red="2">
-            <option value="255" selected>未知票纸</option>
+          <optgroup label="其他（信息单、未知）" data-red="2">
+            <option value="254">信息单，白色小票</option>
+            <option value="255" selected>其他非红非蓝票纸（请详细描述）</option>
           </optgroup>
         </select>
       </div>
@@ -240,7 +242,7 @@
       </div>
       <div class="mb-3 g-2">
         票机功能信息：
-        <span class="text-danger">本栏目尚未开放，如不确定请先不要填写。</span>
+        <span class="text-danger">本栏目尚未开放，请询问填写方式后填写。</span>
         <details>
           <summary>票机功能信息表</summary>
           <p>
