@@ -1,8 +1,8 @@
 @ECHO OFF
 SET GIT=git
 SET ECHO=ECHO
-SET VERSHRT=3.8.22
-SET VERDATE=20240430
+SET VERSHRT=3.8.24
+SET VERDATE=20240530
 REM DO NOT leave any sensitive data or credentials HERE!
 
 %ECHO% %GIT% commit -S -m "Update %VERDATE% v%VERSHRT%"
