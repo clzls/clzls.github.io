@@ -15,7 +15,11 @@
     <script>
     var x=document.getElementById("demo");
     function getLocation(){navigator.geolocation?navigator.geolocation.getCurrentPosition(showPosition, e=>{x.innerHTML = err.message},{enableHighAccuracy:true}):x.innerHTML="浏览器不支持地理位置"}
-    function showPosition(position) { x.innerHTML="纬度: " + position.coords.latitude + "<br />经度: " + position.coords.longitude + "<br /><img src=\"http://api.tianditu.gov.cn/staticimage?center=" + position.coords.longitude + "," + position.coords.latitude + "&width=400&height=300&zoom=16&markers=" + position.coords.longitude + "," + position.coords.latitude + "&markerStyles=-1,A,My%20Pos&tk=de83979a6a2f34703d9a16734dc51b50\"><br />[" + position.coords.latitude + "," + position.coords.longitude + "]";}
+    function showPosition(position) { x.innerHTML="纬度: " + position.coords.latitude + "<br />经度: " + position.coords.longitude + "<br /><img src=\"http://api.tianditu.gov.cn/staticimage?center=" + position.coords.longitude + "," + position.coords.latitude + "&width=400&height=300&zoom=16&markers=" + position.coords.longitude + "," + position.coords.latitude + "&markerStyles=-1,A,My%20Pos&tk=de83979a6a2f34703d9a16734dc51b50\"><br />[" + position.coords.latitude + "," + position.coords.longitude + "]";setLocator?.(position);}
+    </script>
+    <script src="js/locator.min.js"></script>
+    <script>
+ function setLocator(position){ let j=longlat2locator?.(position.coords.longitude, position.coords.latitude); if (j && j[0]==0){ document.getElementById("demo").innerHTML +='<br />Locator: ' + j[1];}}
     </script>
   </div>
 </body>
